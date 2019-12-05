@@ -1,0 +1,19 @@
+administrator.company.form.label.name = Nombre:
+administrator.company.form.label.sector = Sector:
+administrator.company.form.label.ceo = CEO:
+administrator.company.form.label.activities = Actividades:
+administrator.company.form.label.website = Web:
+administrator.company.form.label.phone = Teléfono de contacto:
+administrator.company.form.label.email = Email de contacto:
+administrator.company.form.label.stars = Estrellas:
+administrator.company.form.label.incorporated = ¿Incorporada?
+administrator.company.form.button.update = Actualizar
+administrator.company.form.button.delete = Borrar
+administrator.company.form.button.create = Crear
+administrator.company.form.button.return = Volver
+
+administrator.company.list.label.name = Nombre
+administrator.company.list.label.website = Web
+administrator.company.list.label.phone = Teléfono de contacto
+administrator.company.list.label.email = Email de contacto
+administrator.company.list.label.stars = Estrellas

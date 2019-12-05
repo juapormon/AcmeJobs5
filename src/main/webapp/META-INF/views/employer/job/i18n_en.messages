@@ -1,0 +1,26 @@
+employer.job.form.label.reference = Reference
+employer.job.form.label.status = Status
+employer.job.form.label.status.draft = Draft
+employer.job.form.label.status.published = Published
+employer.job.form.label.title = Title
+employer.job.form.label.deadline = Deadline
+employer.job.form.label.salary = Salary
+employer.job.form.label.moreInfo = More info (optional)
+employer.job.form.label.descriptor = Descriptor
+employer.job.form.label.descriptor.description = Description
+employer.job.form.label.descriptor.duty.weekPercentage = Weekly percentage
+
+employer.job.form.error.rejected-currency = Only EUR are allowed
+employer.job.form.error.must-future = The deadline must be in the future
+employer.job.form.error.reference-unique = The reference must be unique
+
+employer.job.form.button.update = Update
+employer.job.form.button.delete = Delete
+employer.job.form.button.submit = Create
+employer.job.form.button.list-audits = List audits
+employer.job.form.button.list-duties = List duties
+employer.job.form.button.return = Return
+
+employer.job.list.label.reference = Reference
+employer.job.list.label.deadline = Deadline
+employer.job.list.label.title = Title

@@ -1,0 +1,8 @@
+authenticated.audit.form.label.title = Title
+authenticated.audit.form.label.creationMoment = Creation moment
+authenticated.audit.form.label.body = Body
+
+authenticated.audit.form.button.return = Return
+
+authenticated.audit.list.label.creationMoment = Moment
+authenticated.audit.list.label.title = Title

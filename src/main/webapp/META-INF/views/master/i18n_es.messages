@@ -1,0 +1,173 @@
+# i18n_es.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+# master.banner.welcome #######################################################
+
+master.banner.background = #dfb4da
+
+# master.welcome ##############################################################
+
+master.welcome.title = ¡Bienvenidos!
+master.welcome.text = \
+	¡Bienvenidos a Acme Jobs!  Nunca antes ha sido tan sencillo obtener un \
+	nuevo trabajo.
+
+# master.menu #################################################################
+
+master.menu.home = Inicio
+master.menu.sign-up = Registrarse
+master.menu.sign-in = Entrar
+master.menu.sign-out = Salir
+
+master.menu.list-challenge = Listar desafios
+master.menu.list-announcement = Listar anuncios
+master.menu.list-company = Listar compañías
+master.menu.list-offer = Listar ofertas
+master.menu.create-offer = Crear oferta
+master.menu.list-top-companies = Listar compañías top
+master.menu.list-req = Listar peticiones
+
+master.menu.list-top-investors = Listar mejores inversores
+master.menu.list-investor = Listar inversores
+
+# master.menu.anonymous #######################################################
+
+master.menu.anonymous = Anónimo
+master.menu.anonymous.favourite-link-1 = Enlace de Maria
+master.menu.anonymous.favourite-link-2 = Enlace de Sergio
+master.menu.anonymous.favourite-link-3 = Enlace de David
+master.menu.anonymous.favourite-link-4 = Enlace de Alejandro
+
+master.menu.anonymous.list-shout = Listar gritos
+master.menu.anonymous.create-shout = ¡Gritar!
+
+master.menu.anonymous.list-bulletin-1 = Boletín de David
+master.menu.anonymous.create-bulletin-1 = Publicar en boletín de David
+
+master.menu.anonymous.list-bulletin-2 = Boletin de Alejandro
+master.menu.anonymous.create-bulletin-2 = Publicar en boletin de Alejandro
+
+master.menu.anonymous.list-bulletin-3 = Boletín de María
+master.menu.anonymous.create-bulletin-3 = Publicar en boletín de María
+
+master.menu.anonymous.list-bulletin-4 = Boletín de Sergio
+master.menu.anonymous.create-bulletin-4 = Publicar en boletín de Sergio
+
+# master.menu.authenticated ###################################################
+
+master.menu.authenticated = Autenticado
+
+master.menu.authenticated.list-jobs = Listar trabajos
+master.menu.authenticated.list-my-message-threads = Listar mis hilos
+
+# master.menu.administrator ###################################################
+
+master.menu.administrator = Administrador
+master.menu.administrator.user-accounts = Cuentas de usuario
+master.menu.administrator.shutdown = Parar el sistema
+
+master.menu.administrator.list-announcement = Listar todos los anuncios
+master.menu.administrator.create-announcement = Crear anuncio
+master.menu.administrator.list-customisation-parameters = Ver/editar parámetros de customización
+master.menu.administrator.create-investor = Crear inversor
+master.menu.administrator.list-investor = Listar y editar inversores
+master.menu.administrator.create-company = Crear compañía
+master.menu.administrator.list-company = Listar y editar compañías
+master.menu.administrator.list-challenge = Listar y editar desafios
+master.menu.administrator.create-challenge = Crear desafio
+master.menu.administrator.commercial-banner.list = Listar y editar banners comerciales
+master.menu.administrator.commercial-banner.create = Crear banner comercial
+master.menu.administrator.non-commercial-banner.list = Listar y editar banners no comerciales
+master.menu.administrator.non-commercial-banner.create = Crear banner no comercial
+master.menu.administrator.dashboard = Mostrar indicadores
+master.menu.administrator.chart = Compañías e inversores por sector
+master.menu.administrator.jobs-chart = Gráficos de los trabajos
+
+# master.menu.provider ########################################################
+
+master.menu.provider = Proveedor
+master.menu.provider.favourite-link = Enlace favorito
+master.menu.provider.create-request = Crear petición
+
+# master.menu.consumer ##########################################################
+
+master.menu.consumer = Consumidor
+master.menu.consumer.favourite-link = Enlace favorito
+master.menu.consumer.create-offer = Crear oferta
+
+# master.menu.employer ##########################################################
+
+master.menu.employer = Empleador
+master.menu.employer.job.list-mine = Listar mis trabajos
+master.menu.employer.application.list-mine = Listar solicitudes a mis trabajos
+
+# master.menu.worker ##########################################################
+
+master.menu.worker = Trabajador
+master.menu.worker.application.list-mine = Listar mis solicitudes
+
+
+# master.menu.sponsor #########################################################
+
+master.menu.sponsor = Patrocinador
+master.menu.sponsor.comercial-banner.list-mine = Listar mis Banners Comerciales
+master.menu.sponsor.non-comercial-banner.list-mine = Listar mis Banners no Comerciales
+
+
+# master.menu.auditor ##########################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.job.list-mine = Listar mis trabajos auditados
+master.menu.auditor.job.list-not-mine = Listar mis trabajos no auditados
+
+# master.menu.user-account ####################################################
+
+master.menu.user-account = Cuenta
+master.menu.user-account.general-data = Datos generales
+master.menu.user-account.provider = Datos de proveedor
+master.menu.user-account.become-provider = Hazte proveedor
+master.menu.user-account.consumer = Datos de consumidor
+master.menu.user-account.become-consumer = Hazte consumidor
+
+﻿# master.footer ###############################################################
+
+master.footer.title.about = Nosotros
+master.footer.label.company = La empresa
+master.footer.label.license = Licencia
+master.footer.title.social = Social
+master.footer.label.linked-in = Linked-In
+master.footer.label.twitter = Twitter
+master.footer.title.languages = Lenguages
+master.footer.label.english = Inglés
+master.footer.label.spanish = Español
+
+# master.company ##############################################################
+
+master.company.title = Acme Jobs
+master.company.text = \
+	Acme Jobs, Inc. es una compa��a fict�cia que proporciona un proyecto \
+	plantilla para los estudiantes de la asignatura Dise�o y Pruebas, en el Grado \
+	en Ingenier�a del Software de la Universidad de Sevilla.
+master.company.name = Acme Jobs, Inc.
+master.company.address = Sevilla, Andaluc�a, Espa�a
+master.company.phone = +000 123 456
+master.company.email = contact@acme.com
+
+# master.license ##############################################################
+
+master.license.title = Licencia
+master.license.text = \
+	Puede usar este sistema de forma completamente gratuita respetando las leyes \
+	que sean aplicables.  No compartimos ninguna informaci�n sobre Ud. con ninguna \
+	otra empresa.  Tan s�lo usamos tres cookies, a saber: "JSESSIONID" para identificar \
+	su sesi�n de trabajo, "remember" para mantener su informaci�n de autentificaci�n \
+	durante un m�ximo de 31 d�as y "language" para almacenar sus preferencias de \
+	lenguage.  Adem�s, almacenamos un �tem llamado "returnStack" en el almacenamiento \
+	local de su navegador para saber d�nde tienen que ir algunos botones.

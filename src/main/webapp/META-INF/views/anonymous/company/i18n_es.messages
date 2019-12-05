@@ -1,0 +1,15 @@
+anonymous.company.form.label.name = Nombre
+anonymous.company.form.label.sector = Sector
+anonymous.company.form.label.ceo = CEO
+anonymous.company.form.label.activities = Actividades
+anonymous.company.form.label.website = Web
+anonymous.company.form.label.phone = Teléfono de contacto
+anonymous.company.form.label.email = Email de contacto
+anonymous.company.form.label.stars = Estrellas
+anonymous.company.form.button.return = Volver
+
+anonymous.company.list.label.name = Nombre
+anonymous.company.list.label.website = Web
+anonymous.company.list.label.phone = Teléfono de contacto
+anonymous.company.list.label.email = Email de contacto
+anonymous.company.list.label.stars = Estrellas

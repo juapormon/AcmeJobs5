@@ -1,0 +1,10 @@
+authenticated.message-thread.form.label.title = Title
+authenticated.message-thread.form.label.moment = Moment
+authenticated.message-thread.form.label.creator = Created by
+
+authenticated.message-thread.form.button.list-messages = List messages
+authenticated.message-thread.form.button.return = Return
+
+authenticated.message-thread.list.label.moment = Moment
+authenticated.message-thread.list.label.creator = Creator
+authenticated.message-thread.list.label.title = Title

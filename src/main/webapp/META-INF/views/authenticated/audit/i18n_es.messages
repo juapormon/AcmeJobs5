@@ -1,0 +1,8 @@
+authenticated.audit.form.label.title = Título
+authenticated.audit.form.label.creationMoment = Momento de creación
+authenticated.audit.form.label.body = Cuerpo
+
+authenticated.audit.form.button.return = Volver
+
+authenticated.audit.list.label.creationMoment = Momento
+authenticated.audit.list.label.title = Título

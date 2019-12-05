@@ -1,0 +1,10 @@
+administrator.jobs-chart.form.title.applications-status = Ratio of applications grouped by status
+administrator.jobs-chart.form.label.application = Applications ratio
+administrator.jobs-chart.form.label.application-pending = PENDING
+administrator.jobs-chart.form.label.application-accepted = ACCEPTED
+administrator.jobs-chart.form.label.application-rejected = REJECTED
+
+administrator.jobs-chart.form.title.jobs-status = Ratio of jobs grouped by status
+administrator.jobs-chart.form.label.job = Jobs ratio
+administrator.jobs-chart.form.label.job-draft = DRAFT
+administrator.jobs-chart.form.label.job-published = PUBLISHED

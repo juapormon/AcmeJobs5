@@ -1,0 +1,17 @@
+consumer.offer.form.label.title = Título
+consumer.offer.form.label.moment = Momento
+consumer.offer.form.label.deadline = Fecha límite
+consumer.offer.form.label.description = Descripción
+consumer.offer.form.label.minMoney = Recompensa mínima
+consumer.offer.form.label.maxMoney = Recompensa máxima
+consumer.offer.form.label.ticker = Ticker
+consumer.offer.form.label.confirm = Confirmar
+
+consumer.offer.form.button.return = Volver
+consumer.offer.form.button.create = Crear
+
+consumer.offer.error.must-confirm = No has confirmado la creación
+consumer.offer.error.rejected-currency = Solo se aceptan cantidades en euros
+consumer.offer.error.max-lower-than-min = La recompensa mínima es mayor que la máxima
+consumer.offer.error.must-future = La fecha límite debe ser en el futuro
+consumer.offer.error.ticker-unique = El ticker debe ser único

@@ -1,0 +1,12 @@
+administrator.announcement.list.label.moment= Momento de creación
+administrator.announcement.list.label.title= Título
+
+administrator.announcement.form.label.title= Título:
+administrator.announcement.form.label.moment= Momento de creación:
+administrator.announcement.form.label.moreInfo= Más Info: 
+administrator.announcement.form.label.text= Descripción:
+administrator.announcement.form.button.update= Actualizar
+administrator.announcement.form.button.delete= Borrar
+administrator.announcement.form.button.create= Crear
+
+administrator.announcement.form.button.return= Volver

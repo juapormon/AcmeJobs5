@@ -1,0 +1,17 @@
+authenticated.offer.form.label.title = Título
+authenticated.offer.form.label.moment = Momento
+authenticated.offer.form.label.deadline = Fecha límite
+authenticated.offer.form.label.description = Descripción
+authenticated.offer.form.label.minMoney = Recompensa mínima
+authenticated.offer.form.label.maxMoney = Recompensa máxima
+authenticated.offer.form.label.ticker = Ticker
+authenticated.offer.form.label.confirm = Confirmar
+
+authenticated.offer.form.button.return = Volver
+authenticated.offer.form.button.create = Crear
+
+authenticated.offer.list.label.title = Título
+authenticated.offer.list.label.deadline = Fecha límite
+authenticated.offer.list.label.minMoney = Recompensa mínima
+authenticated.offer.list.label.maxMoney = Recompensa máxima
+authenticated.offer.list.label.ticker = Ticker

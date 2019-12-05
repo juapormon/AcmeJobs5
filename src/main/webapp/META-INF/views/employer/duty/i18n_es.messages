@@ -1,0 +1,8 @@
+employer.duty.form.label.title = Título
+employer.duty.form.label.description = Descripción
+employer.duty.form.label.weekPercentage = Porcentaje semanal
+
+employer.duty.form.button.return = Volver
+
+employer.duty.list.label.title = Título
+employer.duty.list.label.weekPercentage = Porcentaje semanal
