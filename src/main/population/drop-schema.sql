@@ -71,6 +71,14 @@
        drop 
        foreign key `FK3fa4h4tfet2kocvatib2ovhsa`;
 
+    alter table `message_thread_authenticated` 
+       drop 
+       foreign key `FK2buymmljcjk3s7ul9ex3bux46`;
+
+    alter table `message_thread_authenticated` 
+       drop 
+       foreign key `FKjb0tx79q4dpibs3mnkp6wfqvf`;
+
     alter table `non_commercial_banner` 
        drop 
        foreign key FK_2l8gpcwh19e7jj513or4r9dvb;
@@ -138,6 +146,8 @@
     drop table if exists `message`;
 
     drop table if exists `message_thread`;
+
+    drop table if exists `message_thread_authenticated`;
 
     drop table if exists `non_commercial_banner`;
 
