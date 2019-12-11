@@ -135,6 +135,8 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+master.menu.user-account.employer = Datos de empleado
+master.menu.user-account.become-employer = Hazte empleado
 
 ﻿# master.footer ###############################################################
 

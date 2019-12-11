@@ -46,7 +46,7 @@ public class AuthenticatedEmployerCreateService implements AbstractCreateService
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "companyName", "activitySector");
+		request.unbind(entity, model, "company", "sector");
 
 	}
 
