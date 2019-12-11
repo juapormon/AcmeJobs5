@@ -39,25 +39,21 @@
        drop 
        foreign key FK_6cyha9f1wpj0dpbxrrjddrqed;
 
-    alter table `descriptor_duty` 
-       drop 
-       foreign key `FK57eqqlhihwvd53ykpmsiqlx2p`;
-
-    alter table `descriptor_duty` 
-       drop 
-       foreign key `FKqitedkrksd2w8qyp1fp5eao9f`;
-
     alter table `employer` 
        drop 
        foreign key FK_na4dfobmeuxkwf6p75abmb2tr;
 
     alter table `job` 
        drop 
-       foreign key `FKfqwyynnbcsq0htxho3vchpd2u`;
-
-    alter table `job` 
-       drop 
        foreign key `FK3rxjf8uh6fh2u990pe8i2at0e`;
+
+    alter table `job_duty` 
+       drop 
+       foreign key `FK4pblwv39bwidr7x0ckoirjgd2`;
+
+    alter table `job_duty` 
+       drop 
+       foreign key `FKrxu09f16kvcibraroor41bpmr`;
 
     alter table `message` 
        drop 
@@ -127,10 +123,6 @@
 
     drop table if exists `customisation_parameters`;
 
-    drop table if exists `descriptor`;
-
-    drop table if exists `descriptor_duty`;
-
     drop table if exists `duty`;
 
     drop table if exists `employer`;
@@ -140,6 +132,8 @@
     drop table if exists `investor`;
 
     drop table if exists `job`;
+
+    drop table if exists `job_duty`;
 
     drop table if exists `marin_bulletin`;
 

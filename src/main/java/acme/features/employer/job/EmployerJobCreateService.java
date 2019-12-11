@@ -7,7 +7,7 @@ import java.util.GregorianCalendar;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.jobs.Descriptor;
+import acme.datatypes.JobDescriptor;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
@@ -55,7 +55,7 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		Job result = new Job();
 
 		result.setEmployer(this.repository.findOneEmployerById(request.getPrincipal().getActiveRoleId()));
-		result.setDescriptor(new Descriptor());
+		result.setDescriptor(new JobDescriptor());
 
 		return result;
 	}
@@ -92,7 +92,6 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		assert entity != null;
 
 		this.repository.save(entity);
-		this.repository.save(entity.getDescriptor());
 
 	}
 }

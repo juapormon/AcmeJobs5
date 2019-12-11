@@ -148,18 +148,6 @@
         primary key (`id`)
     ) engine=InnoDB;
 
-    create table `descriptor` (
-       `id` integer not null,
-        `version` integer not null,
-        `description` varchar(255),
-        primary key (`id`)
-    ) engine=InnoDB;
-
-    create table `descriptor_duty` (
-       `descriptor_id` integer not null,
-        `duties_id` integer not null
-    ) engine=InnoDB;
-
     create table `duty` (
        `id` integer not null,
         `version` integer not null,
@@ -201,15 +189,20 @@
        `id` integer not null,
         `version` integer not null,
         `deadline` datetime(6),
+        `descriptor_description` varchar(255),
         `more_info` varchar(255),
         `reference` varchar(255),
         `salary_amount` double precision,
         `salary_currency` varchar(255),
         `status` integer,
         `title` varchar(255),
-        `descriptor_id` integer not null,
         `employer_id` integer not null,
         primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `job_duty` (
+       `job_id` integer not null,
+        `descriptor_duties_id` integer not null
     ) engine=InnoDB;
 
     create table `marin_bulletin` (
@@ -356,18 +349,15 @@ create index IDX2q2747fhp099wkn3j2yt05fhs on `application` (`status`);
 create index IDX56unvc9gsmb8lr6b24a2b8ywk on `audit` (`status`);
 create index IDXnr284tes3x8hnd3h716tmb3fr on `challenge` (`deadline`);
 create index IDXbm7mwffwxwiukjmbmt9t1qnnu on `company` (`sector`);
-
-    alter table `descriptor_duty` 
-       add constraint UK_kvr5rclgwa51d625rmx13ke96 unique (`duties_id`);
 create index IDX1slmmcr1g0wv9jbgun6rny0oy on `investor` (`sector`);
 create index IDXal59yunywnkwi09ps7jxpr18c on `job` (`status`, `deadline`);
 create index IDX28ur9xm72oo1df9g14xhnh8h3 on `job` (`status`);
 
     alter table `job` 
-       add constraint UK_qpodqtu8nvqkof3olnqnqcv2l unique (`descriptor_id`);
-
-    alter table `job` 
        add constraint UK_7jmfdvs0b0jx7i33qxgv22h7b unique (`reference`);
+
+    alter table `job_duty` 
+       add constraint UK_o9fhqvqc9e1hau7oq99l6u1bj unique (`descriptor_duties_id`);
 create index IDXq2o9psuqfuqmq59f0sq57x9uf on `offer` (`deadline`);
 
     alter table `offer` 
@@ -430,30 +420,25 @@ create index IDXnfbpi0hue0rf52f7hot7cxy9q on `req` (`deadline`);
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
-    alter table `descriptor_duty` 
-       add constraint `FK57eqqlhihwvd53ykpmsiqlx2p` 
-       foreign key (`duties_id`) 
-       references `duty` (`id`);
-
-    alter table `descriptor_duty` 
-       add constraint `FKqitedkrksd2w8qyp1fp5eao9f` 
-       foreign key (`descriptor_id`) 
-       references `descriptor` (`id`);
-
     alter table `employer` 
        add constraint FK_na4dfobmeuxkwf6p75abmb2tr 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
     alter table `job` 
-       add constraint `FKfqwyynnbcsq0htxho3vchpd2u` 
-       foreign key (`descriptor_id`) 
-       references `descriptor` (`id`);
-
-    alter table `job` 
        add constraint `FK3rxjf8uh6fh2u990pe8i2at0e` 
        foreign key (`employer_id`) 
        references `employer` (`id`);
+
+    alter table `job_duty` 
+       add constraint `FK4pblwv39bwidr7x0ckoirjgd2` 
+       foreign key (`descriptor_duties_id`) 
+       references `duty` (`id`);
+
+    alter table `job_duty` 
+       add constraint `FKrxu09f16kvcibraroor41bpmr` 
+       foreign key (`job_id`) 
+       references `job` (`id`);
 
     alter table `message` 
        add constraint `FKd8wmf6nghttk2h9gq7v8p9lqo` 

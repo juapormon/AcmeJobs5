@@ -255,7 +255,8 @@ Job
 + title: String {NotBlank}
 + deadline: Date {Temporal(TIMESTAMP)}
 + salary: Money {NotNull}
-+ moreInfo: String {URL}</panel_attributes>
++ moreInfo: String {URL}
++ descriptor: JobDescriptor</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -624,12 +625,13 @@ Descriptor
     <coordinates>
       <x>585</x>
       <y>415</y>
-      <w>20</w>
+      <w>220</w>
       <h>45</h>
     </coordinates>
     <panel_attributes>lt=&lt;-x
 m1=1
-m2=1</panel_attributes>
+m2=1
+ESTO HAY QUE CAMBIARLO PREGUNTAR A LA PROFESORA</panel_attributes>
     <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
   </element>
   <element>

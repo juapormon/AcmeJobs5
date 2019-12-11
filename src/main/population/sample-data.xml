@@ -395,18 +395,18 @@
 		<property name="deadline" value="2030/12/11 23:59" />
 		<property name="salary" value="€ 15,000.98" />
 		<property name="moreInfo" value="http://www.example.com" />
-		<property name="descriptor" ref="job1Descriptor" />
-		<property name="employer" ref="employer1Employer" />
-	</bean>
-
-	<bean name="job1Descriptor" class="acme.entities.jobs.Descriptor">
-		<property name="description" value="Description 1" />
-		<property name="duties">
-			<list>
-				<ref bean="job1Duty1" />
-				<ref bean="job1Duty2" />
-			</list>
+		<property name="descriptor">
+			<bean class="acme.datatypes.JobDescriptor">
+				<property name="description" value="Description 1" />
+				<property name="duties">
+					<list>
+						<ref bean="job1Duty1" />
+						<ref bean="job1Duty2" />
+					</list>
+				</property>
+			</bean>
 		</property>
+		<property name="employer" ref="employer1Employer" />
 	</bean>
 
 	<bean name="job1Duty1" class="acme.entities.jobs.Duty">
@@ -428,17 +428,17 @@
 		<property name="deadline" value="2030/12/11 23:59" />
 		<property name="salary" value="€ 15,000.98" />
 		<property name="moreInfo" value="http://www.example.com" />
-		<property name="descriptor" ref="job2Descriptor" />
-		<property name="employer" ref="employer1Employer" />
-	</bean>
-
-	<bean name="job2Descriptor" class="acme.entities.jobs.Descriptor">
-		<property name="description" value="Description 2" />
-		<property name="duties">
-			<list>
-				<ref bean="job2Duty1" />
-			</list>
+		<property name="descriptor">
+			<bean class="acme.datatypes.JobDescriptor">
+				<property name="description" value="Description 2" />
+				<property name="duties">
+					<list>
+						<ref bean="job2Duty1" />
+					</list>
+				</property>
+			</bean>
 		</property>
+		<property name="employer" ref="employer1Employer" />
 	</bean>
 
 	<bean name="job2Duty1" class="acme.entities.jobs.Duty">
@@ -454,16 +454,16 @@
 		<property name="deadline" value="2030/12/11 23:59" />
 		<property name="salary" value="€ 15,000.98" />
 		<property name="moreInfo" value="http://www.example.com" />
-		<property name="descriptor" ref="job3Descriptor" />
-		<property name="employer" ref="employer2Employer" />
-	</bean>
-
-	<bean name="job3Descriptor" class="acme.entities.jobs.Descriptor">
-		<property name="description" value="Description 3" />
-		<property name="duties">
-			<list>
-			</list>
+		<property name="descriptor">
+			<bean class="acme.datatypes.JobDescriptor">
+				<property name="description" value="Description 3" />
+				<property name="duties">
+					<list>
+					</list>
+				</property>
+			</bean>
 		</property>
+		<property name="employer" ref="employer2Employer" />
 	</bean>
 
 	<bean name="job4" class="acme.entities.jobs.Job">
@@ -473,16 +473,16 @@
 		<property name="deadline" value="2030/12/11 23:59" />
 		<property name="salary" value="€ 15,000.98" />
 		<property name="moreInfo" value="http://www.example.com" />
-		<property name="descriptor" ref="job4Descriptor" />
-		<property name="employer" ref="employer2Employer" />
-	</bean>
-
-	<bean name="job4Descriptor" class="acme.entities.jobs.Descriptor">
-		<property name="description" value="Description 4" />
-		<property name="duties">
-			<list>
-			</list>
+		<property name="descriptor">
+			<bean class="acme.datatypes.JobDescriptor">
+				<property name="description" value="Description 4" />
+				<property name="duties">
+					<list>
+					</list>
+				</property>
+			</bean>
 		</property>
+		<property name="employer" ref="employer2Employer" />
 	</bean>
 
 	<bean name="job5" class="acme.entities.jobs.Job">
@@ -492,16 +492,16 @@
 		<property name="deadline" value="2018/12/11 23:59" />
 		<property name="salary" value="€ 15,000.98" />
 		<property name="moreInfo" value="http://www.example.com" />
-		<property name="descriptor" ref="job5Descriptor" />
-		<property name="employer" ref="employer1Employer" />
-	</bean>
-
-	<bean name="job5Descriptor" class="acme.entities.jobs.Descriptor">
-		<property name="description" value="Description 5" />
-		<property name="duties">
-			<list>
-			</list>
+		<property name="descriptor">
+			<bean class="acme.datatypes.JobDescriptor">
+				<property name="description" value="Description 5" />
+				<property name="duties">
+					<list>
+					</list>
+				</property>
+			</bean>
 		</property>
+		<property name="employer" ref="employer1Employer" />
 	</bean>
 
 	<!-- Applications -->

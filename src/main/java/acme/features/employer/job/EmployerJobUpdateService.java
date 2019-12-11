@@ -106,6 +106,5 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		assert entity != null;
 
 		this.repository.save(entity);
-		this.repository.save(entity.getDescriptor());
 	}
 }
