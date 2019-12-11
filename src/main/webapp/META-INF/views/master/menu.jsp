@@ -146,6 +146,8 @@
 			<acme:menu-suboption code="master.menu.list-req" action="/authenticated/request/list" />
 			<acme:menu-suboption code="master.menu.list-challenge" action="/authenticated/challenge/list" />
 			<acme:menu-suboption code="master.menu.list-offer" action="/authenticated/offer/list" />
+			<acme:menu-suboption code="master.menu.user-account.become-worker" action="/authenticated/worker/create" access="!hasRole('Worker')"/>
+			<acme:menu-suboption code="master.menu.user-account.now-worker" action="/authenticated/worker/update" access="hasRole('Worker')"/>
 
 			<acme:menu-separator />
 
