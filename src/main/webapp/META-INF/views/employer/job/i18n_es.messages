@@ -10,7 +10,6 @@ employer.job.form.label.description = Descripción
 
 employer.job.form.error.incorrect-weekly-workload = Las tareas no suman el 100% de la carga de trabajo semanal
 employer.job.form.error.is-published = No puedes modificar un trabajo ya publicado
-employer.job.form.error.must-be-draft = Un trabajo recién creado debe estar en modo borrador
 employer.job.form.error.rejected-currency = Solo se aceptan cantidades en euros
 employer.job.form.error.must-future = La fecha límite debe estar en el futuro
 employer.job.form.error.reference-unique = La referencia debe ser única
@@ -25,5 +24,6 @@ employer.job.form.button.list-duties = Listar tareas
 employer.job.form.button.return = Volver
 
 employer.job.list.label.reference = Referencia
+employer.job.list.label.status = Estado
 employer.job.list.label.deadline = Fecha límite
 employer.job.list.label.title = Título

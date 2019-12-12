@@ -54,7 +54,7 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		assert request != null;
 
 		Job result = new Job();
-
+		result.setStatus(JobStatus.DRAFT);
 		result.setEmployer(this.repository.findOneEmployerById(request.getPrincipal().getActiveRoleId()));
 
 		return result;
@@ -65,9 +65,6 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-
-		boolean isDraft = entity.getStatus() == JobStatus.DRAFT;
-		errors.state(request, isDraft, "status", "employer.job.form.error.must-be-draft");
 
 		boolean salaryHasErrors = errors.hasErrors("salary");
 		if (!salaryHasErrors) {
