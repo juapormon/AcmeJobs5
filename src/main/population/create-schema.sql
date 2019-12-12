@@ -154,6 +154,7 @@
         `description` varchar(255),
         `title` varchar(255),
         `week_percentage` float not null,
+        `job_id` integer,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -189,7 +190,7 @@
        `id` integer not null,
         `version` integer not null,
         `deadline` datetime(6),
-        `descriptor_description` varchar(255),
+        `description` varchar(255),
         `more_info` varchar(255),
         `reference` varchar(255),
         `salary_amount` double precision,
@@ -198,11 +199,6 @@
         `title` varchar(255),
         `employer_id` integer not null,
         primary key (`id`)
-    ) engine=InnoDB;
-
-    create table `job_duty` (
-       `job_id` integer not null,
-        `descriptor_duties_id` integer not null
     ) engine=InnoDB;
 
     create table `marin_bulletin` (
@@ -355,9 +351,6 @@ create index IDX28ur9xm72oo1df9g14xhnh8h3 on `job` (`status`);
 
     alter table `job` 
        add constraint UK_7jmfdvs0b0jx7i33qxgv22h7b unique (`reference`);
-
-    alter table `job_duty` 
-       add constraint UK_o9fhqvqc9e1hau7oq99l6u1bj unique (`descriptor_duties_id`);
 create index IDXq2o9psuqfuqmq59f0sq57x9uf on `offer` (`deadline`);
 
     alter table `offer` 
@@ -420,6 +413,11 @@ create index IDXnfbpi0hue0rf52f7hot7cxy9q on `req` (`deadline`);
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
+    alter table `duty` 
+       add constraint `FKs2uoxh4i5ya8ptyefae60iao1` 
+       foreign key (`job_id`) 
+       references `job` (`id`);
+
     alter table `employer` 
        add constraint FK_na4dfobmeuxkwf6p75abmb2tr 
        foreign key (`user_account_id`) 
@@ -429,16 +427,6 @@ create index IDXnfbpi0hue0rf52f7hot7cxy9q on `req` (`deadline`);
        add constraint `FK3rxjf8uh6fh2u990pe8i2at0e` 
        foreign key (`employer_id`) 
        references `employer` (`id`);
-
-    alter table `job_duty` 
-       add constraint `FK4pblwv39bwidr7x0ckoirjgd2` 
-       foreign key (`descriptor_duties_id`) 
-       references `duty` (`id`);
-
-    alter table `job_duty` 
-       add constraint `FKrxu09f16kvcibraroor41bpmr` 
-       foreign key (`job_id`) 
-       references `job` (`id`);
 
     alter table `message` 
        add constraint `FKd8wmf6nghttk2h9gq7v8p9lqo` 
