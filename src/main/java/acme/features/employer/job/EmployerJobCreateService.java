@@ -7,8 +7,8 @@ import java.util.GregorianCalendar;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.datatypes.JobDescriptor;
 import acme.entities.jobs.Job;
+import acme.entities.jobs.JobStatus;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -46,16 +46,16 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "status", "title", "deadline", "salary", "moreInfo", "descriptor.description");
+		request.unbind(entity, model, "reference", "status", "title", "deadline", "salary", "moreInfo", "description");
 	}
 
 	@Override
 	public Job instantiate(final Request<Job> request) {
 		assert request != null;
+
 		Job result = new Job();
 
 		result.setEmployer(this.repository.findOneEmployerById(request.getPrincipal().getActiveRoleId()));
-		result.setDescriptor(new JobDescriptor());
 
 		return result;
 	}
@@ -65,6 +65,9 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		boolean isDraft = entity.getStatus() == JobStatus.DRAFT;
+		errors.state(request, isDraft, "status", "employer.job.form.error.must-be-draft");
 
 		boolean salaryHasErrors = errors.hasErrors("salary");
 		if (!salaryHasErrors) {
@@ -92,6 +95,5 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		assert entity != null;
 
 		this.repository.save(entity);
-
 	}
 }

@@ -7,6 +7,7 @@ import java.util.GregorianCalendar;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.jobs.Duty;
 import acme.entities.jobs.Job;
 import acme.entities.jobs.JobStatus;
 import acme.entities.roles.Employer;
@@ -38,7 +39,7 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		job = this.repository.findOneJobById(jobId);
 		employer = job.getEmployer();
 		principal = request.getPrincipal();
-		result = job.getStatus() == JobStatus.DRAFT && employer.getUserAccount().getId() == principal.getAccountId();
+		result = employer.getUserAccount().getId() == principal.getAccountId() && job.getStatus() == JobStatus.DRAFT;
 
 		return result;
 	}
@@ -58,7 +59,7 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "status", "title", "deadline", "salary", "moreInfo", "descriptor.description");
+		request.unbind(entity, model, "reference", "status", "title", "deadline", "salary", "moreInfo", "description");
 	}
 
 	@Override
@@ -66,6 +67,25 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		Job job = this.repository.findOneJobById(entity.getId());
+		boolean isDraft = job.getStatus() == JobStatus.DRAFT;
+		errors.state(request, isDraft, "status", "employer.job.form.error.is-published");
+
+		if (isDraft && entity.getStatus() == JobStatus.PUBLISHED) {
+			float sum = 0;
+			for (Duty duty : this.repository.findManyDutiesByJobId(entity.getId())) {
+				sum += duty.getWeekPercentage();
+			}
+
+			boolean correctWeeklyWorkload = sum == 100;
+			errors.state(request, correctWeeklyWorkload, "description", "employer.job.form.error.incorrect-weekly-workload");
+			if (!correctWeeklyWorkload) {
+				entity.setStatus(JobStatus.DRAFT);
+			}
+		}
+
+		job.setStatus(JobStatus.DRAFT);
 
 		boolean salaryHasErrors = errors.hasErrors("salary");
 		if (!salaryHasErrors) {
