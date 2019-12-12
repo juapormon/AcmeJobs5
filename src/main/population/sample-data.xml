@@ -395,17 +395,7 @@
 		<property name="deadline" value="2030/12/11 23:59" />
 		<property name="salary" value="€ 15,000.98" />
 		<property name="moreInfo" value="http://www.example.com" />
-		<property name="descriptor">
-			<bean class="acme.datatypes.JobDescriptor">
-				<property name="description" value="Description 1" />
-				<property name="duties">
-					<list>
-						<ref bean="job1Duty1" />
-						<ref bean="job1Duty2" />
-					</list>
-				</property>
-			</bean>
-		</property>
+		<property name="description" value="Description 1" />
 		<property name="employer" ref="employer1Employer" />
 	</bean>
 
@@ -413,12 +403,14 @@
 		<property name="title" value="Duty 1" />
 		<property name="description" value="Duty 1 description" />
 		<property name="weekPercentage" value="50" />
+		<property name="job" ref="job1" />
 	</bean>
 
 	<bean name="job1Duty2" class="acme.entities.jobs.Duty">
 		<property name="title" value="Duty 2" />
 		<property name="description" value="Duty 2 description" />
 		<property name="weekPercentage" value="50" />
+		<property name="job" ref="job1" />
 	</bean>
 
 	<bean name="job2" class="acme.entities.jobs.Job">
@@ -428,16 +420,7 @@
 		<property name="deadline" value="2030/12/11 23:59" />
 		<property name="salary" value="€ 15,000.98" />
 		<property name="moreInfo" value="http://www.example.com" />
-		<property name="descriptor">
-			<bean class="acme.datatypes.JobDescriptor">
-				<property name="description" value="Description 2" />
-				<property name="duties">
-					<list>
-						<ref bean="job2Duty1" />
-					</list>
-				</property>
-			</bean>
-		</property>
+		<property name="description" value="Description 2" />
 		<property name="employer" ref="employer1Employer" />
 	</bean>
 
@@ -445,6 +428,7 @@
 		<property name="title" value="Duty 1" />
 		<property name="description" value="Duty 1 description" />
 		<property name="weekPercentage" value="100" />
+		<property name="job" ref="job2" />
 	</bean>
 
 	<bean name="job3" class="acme.entities.jobs.Job">
@@ -454,15 +438,7 @@
 		<property name="deadline" value="2030/12/11 23:59" />
 		<property name="salary" value="€ 15,000.98" />
 		<property name="moreInfo" value="http://www.example.com" />
-		<property name="descriptor">
-			<bean class="acme.datatypes.JobDescriptor">
-				<property name="description" value="Description 3" />
-				<property name="duties">
-					<list>
-					</list>
-				</property>
-			</bean>
-		</property>
+		<property name="description" value="Description 3" />
 		<property name="employer" ref="employer2Employer" />
 	</bean>
 
@@ -473,15 +449,7 @@
 		<property name="deadline" value="2030/12/11 23:59" />
 		<property name="salary" value="€ 15,000.98" />
 		<property name="moreInfo" value="http://www.example.com" />
-		<property name="descriptor">
-			<bean class="acme.datatypes.JobDescriptor">
-				<property name="description" value="Description 4" />
-				<property name="duties">
-					<list>
-					</list>
-				</property>
-			</bean>
-		</property>
+		<property name="description" value="Description 4" />
 		<property name="employer" ref="employer2Employer" />
 	</bean>
 
@@ -492,15 +460,7 @@
 		<property name="deadline" value="2018/12/11 23:59" />
 		<property name="salary" value="€ 15,000.98" />
 		<property name="moreInfo" value="http://www.example.com" />
-		<property name="descriptor">
-			<bean class="acme.datatypes.JobDescriptor">
-				<property name="description" value="Description 5" />
-				<property name="duties">
-					<list>
-					</list>
-				</property>
-			</bean>
-		</property>
+		<property name="description" value="Description 5" />
 		<property name="employer" ref="employer1Employer" />
 	</bean>
 
