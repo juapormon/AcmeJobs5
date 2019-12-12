@@ -6,16 +6,18 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
+import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Principal;
-import acme.framework.services.AbstractShowService;
+import acme.framework.services.AbstractDeleteService;
 
 @Service
-public class EmployerJobShowService implements AbstractShowService<Employer, Job> {
+
+public class EmployerJobDeleteService implements AbstractDeleteService<Employer, Job> {
 
 	@Autowired
-	private EmployerJobRepository repository;
+	EmployerJobRepository repository;
 
 
 	@Override
@@ -38,19 +40,25 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 	}
 
 	@Override
+	public void bind(final Request<Job> request, final Job entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+
+		request.bind(entity, errors);
+	}
+
+	@Override
 	public void unbind(final Request<Job> request, final Job entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
 		request.unbind(entity, model, "reference", "status", "title", "deadline", "salary", "moreInfo", "description");
-
 	}
 
 	@Override
 	public Job findOne(final Request<Job> request) {
-		assert request != null;
-
 		Job result;
 		int id;
 
@@ -60,4 +68,21 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 		return result;
 	}
 
+	@Override
+	public void validate(final Request<Job> request, final Job entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+
+		boolean hasApplications = this.repository.findTotalApplicationsByJobId(entity.getId()) > 0;
+		errors.state(request, !hasApplications, "descriptor.description", "employer.job.form.error.cant-delete");
+	}
+
+	@Override
+	public void delete(final Request<Job> request, final Job entity) {
+		assert request != null;
+		assert entity != null;
+
+		this.repository.delete(entity);
+	}
 }
