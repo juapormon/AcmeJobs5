@@ -6,7 +6,7 @@ employer.job.form.label.title = Título
 employer.job.form.label.deadline = Fecha límite
 employer.job.form.label.salary = Salario
 employer.job.form.label.moreInfo = Más información
-employer.job.form.label.descriptor.description = Descripción
+employer.job.form.label.description = Descripción
 
 employer.job.form.error.incorrect-weekly-workload = Las tareas no suman el 100% de la carga de trabajo semanal
 employer.job.form.error.is-published = No puedes modificar un trabajo ya publicado

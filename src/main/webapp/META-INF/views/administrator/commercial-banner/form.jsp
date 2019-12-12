@@ -16,18 +16,18 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:form-url code="administrator.commercial-banner.form.label.picture" path="picture"/>
-	<acme:form-textarea code="administrator.commercial-banner.form.label.slogan" path="slogan"/>
-	<acme:form-url code="administrator.commercial-banner.form.label.targetURL" path="targetURL"/>
-	<acme:form-textbox code="administrator.commercial-banner.form.label.creditCardNumber" path="creditCardNumber"/>
-	<acme:form-integer code="administrator.commercial-banner.form.label.creditCardCvv" path="creditCardCvv"/>
+	<acme:form-url code="administrator.commercial-banner.form.label.picture" path="picture" />
+	<acme:form-textarea code="administrator.commercial-banner.form.label.slogan" path="slogan" />
+	<acme:form-url code="administrator.commercial-banner.form.label.targetURL" path="targetURL" />
+	<acme:form-textbox code="administrator.commercial-banner.form.label.creditCardNumber" path="creditCardNumber" />
+	<acme:form-integer code="administrator.commercial-banner.form.label.creditCardCvv" path="creditCardCvv" />
 	<acme:form-integer code="administrator.commercial-banner.form.label.creditCardMonth" path="creditCardMonth" />
-	<acme:form-integer code="administrator.commercial-banner.form.label.creditCardYear" path="creditCardYear"/>
-	
-	<acme:form-submit test="${command == 'show'}" code="administrator.commercial-banner.form.button.update" action="update"/>
-	<acme:form-submit test="${command == 'show'}" code="administrator.commercial-banner.form.button.delete" action="delete"/>
-	<acme:form-submit test="${command == 'update'}" code="administrator.commercial-banner.form.button.update" action="update"/>
-	<acme:form-submit test="${command == 'delete'}" code="administrator.commercial-banner.form.button.delete" action="delete"/>
-	<acme:form-submit test="${command == 'create'}" code="administrator.commercial-banner.form.button.submit" action="create"/>
-	<acme:form-return code="administrator.commercial-banner.form.button.return"/>
+	<acme:form-integer code="administrator.commercial-banner.form.label.creditCardYear" path="creditCardYear" />
+
+	<acme:form-submit test="${command == 'show'}" code="administrator.commercial-banner.form.button.update" action="update" />
+	<acme:form-submit test="${command == 'show'}" code="administrator.commercial-banner.form.button.delete" action="delete" />
+	<acme:form-submit test="${command == 'update'}" code="administrator.commercial-banner.form.button.update" action="update" />
+	<acme:form-submit test="${command == 'delete'}" code="administrator.commercial-banner.form.button.delete" action="delete" />
+	<acme:form-submit test="${command == 'create'}" code="administrator.commercial-banner.form.button.submit" action="create" />
+	<acme:form-return code="administrator.commercial-banner.form.button.return" />
 </acme:form>

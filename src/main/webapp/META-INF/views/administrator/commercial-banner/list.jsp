@@ -17,8 +17,8 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:list>
-	<acme:list-column code="administrator.commercial-banner.list.label.targetURL" path="targetURL" width="50%"/>
-	<acme:list-column code="administrator.commercial-banner.list.label.slogan" path="slogan" width="50%"/>
+	<acme:list-column code="administrator.commercial-banner.list.label.targetURL" path="targetURL" width="50%" />
+	<acme:list-column code="administrator.commercial-banner.list.label.slogan" path="slogan" width="50%" />
 
 </acme:list>
 
