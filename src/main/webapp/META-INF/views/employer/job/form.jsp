@@ -5,12 +5,14 @@
 
 <acme:form readonly="${(command == 'show' || command == 'delete') && status == 'PUBLISHED'}">
 	<acme:form-textbox code="employer.job.form.label.reference" path="reference" />
-	<acme:form-select code="employer.job.form.label.status" path="status">
-		<jstl:forEach var="status" items="<%=acme.entities.jobs.JobStatus.values()%>">
-			<acme:form-option code="employer.job.form.label.status.${status.name().toLowerCase()}" value="${status.name()}"
-				selected="${(requestScope['status'] == status) ? 'true' : 'false'}" />
-		</jstl:forEach>
-	</acme:form-select>
+	<jstl:if test="${command != 'create'}">
+		<acme:form-select code="employer.job.form.label.status" path="status">
+			<jstl:forEach var="status" items="<%=acme.entities.jobs.JobStatus.values()%>">
+				<acme:form-option code="employer.job.form.label.status.${status.name().toLowerCase()}" value="${status.name()}"
+					selected="${(requestScope['status'] == status) ? 'true' : 'false'}" />
+			</jstl:forEach>
+		</acme:form-select>
+	</jstl:if>
 	<acme:form-textbox code="employer.job.form.label.title" path="title" />
 	<acme:form-moment code="employer.job.form.label.deadline" path="deadline" />
 	<acme:form-money code="employer.job.form.label.salary" path="salary" />
@@ -23,7 +25,7 @@
 	<acme:form-submit test="${(command == 'show' && status == 'DRAFT') || command == 'update'}" code="employer.job.form.button.delete"
 		action="delete" />
 	<acme:form-submit test="${(command == 'show' && status == 'DRAFT' ) || command == 'update'}"
-		code="employer.job.form.button.add-duty" action="../duty/create?jobId=${id}" />
+		code="employer.job.form.button.add-duty" action="/employer/duty/create?jobId=${id}" method="get" />
 	<acme:form-submit test="${command != 'create'}" code="employer.job.form.button.list-duties" action="/employer/duty/list?id=${id}"
 		method="get" />
 	<acme:form-submit test="${command == 'show' && status == 'PUBLISHED'}" code="employer.job.form.button.list-audits"

@@ -56,7 +56,8 @@ public class EmployerDutyCreateService implements AbstractCreateService<Employer
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "description", "weekPercentage", "job.status");
+		model.setAttribute("jobId", request.getModel().getInteger("jobId"));
+		request.unbind(entity, model, "title", "description", "weekPercentage");
 	}
 
 	@Override

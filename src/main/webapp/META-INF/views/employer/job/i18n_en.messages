@@ -10,7 +10,6 @@ employer.job.form.label.description = Description
 
 employer.job.form.error.incorrect-weekly-workload = The duties do not sum up to 100% the weekly workload
 employer.job.form.error.is-published = You can not modify an already published job
-employer.job.form.error.must-be-draft = A newly create job must be in draft mode
 employer.job.form.error.rejected-currency = Only EUR are allowed
 employer.job.form.error.must-future = The deadline must be in the future
 employer.job.form.error.reference-unique = The reference must be unique
@@ -25,5 +24,6 @@ employer.job.form.button.list-duties = List duties
 employer.job.form.button.return = Return
 
 employer.job.list.label.reference = Reference
+employer.job.list.label.status = Status
 employer.job.list.label.deadline = Deadline
 employer.job.list.label.title = Title
