@@ -82,7 +82,7 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		boolean referenceHasErrors = errors.hasErrors("reference");
 		if (!referenceHasErrors) {
 			Job existing = this.repository.findOneJobByReference(entity.getReference());
-			errors.state(request, existing == null || existing.getId() == entity.getId(), "reference", "employer.job.form.error.reference-unique");
+			errors.state(request, existing == null, "reference", "employer.job.form.error.reference-unique");
 		}
 	}
 
