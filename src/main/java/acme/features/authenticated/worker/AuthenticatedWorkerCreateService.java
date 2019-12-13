@@ -42,7 +42,13 @@ public class AuthenticatedWorkerCreateService implements AbstractCreateService<A
 	public boolean authorise(final Request<Worker> request) {
 		assert request != null;
 
-		return true;
+		boolean result;
+		Principal principal;
+
+		principal = request.getPrincipal();
+		result = this.repository.findOneWorkerByUserAccountId(principal.getAccountId()) == null;
+
+		return result;
 	}
 
 	@Override
