@@ -7,8 +7,11 @@ worker.application.form.label.status.rejected = Rechazada
 worker.application.form.label.statement = Declaración
 worker.application.form.label.skills = Habilidades
 worker.application.form.label.qualifications = Cualificaciones
-worker.application.form.label.job.reference = Referencia del trabajo
 
+worker.application.form.error.reference-unique = La referencia debe ser única
+
+worker.application.form.button.create = Crear
+worker.application.form.button.show-job = Mostrar trabajo
 worker.application.form.button.return = Volver
 
 worker.application.list.label.reference = Referencia

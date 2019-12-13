@@ -3,8 +3,7 @@ authenticated.job.form.label.title = Título
 authenticated.job.form.label.deadline = Fecha límite
 authenticated.job.form.label.salary = Salario
 authenticated.job.form.label.moreInfo = Más información
-authenticated.job.form.label.descriptor = Descriptor
-authenticated.job.form.label.descriptor.description = Descripción
+authenticated.job.form.label.description = Descripción
 
 authenticated.job.form.button.list-duties = Listar tareas
 authenticated.job.form.button.list-audits = Listar auditorías
