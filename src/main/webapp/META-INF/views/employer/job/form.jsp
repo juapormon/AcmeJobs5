@@ -30,5 +30,7 @@
 		method="get" />
 	<acme:form-submit test="${command == 'show' && status == 'PUBLISHED'}" code="employer.job.form.button.list-audits"
 		action="/authenticated/audit/list?id=${id}" method="get" />
+	<acme:form-submit test="${command == 'show' && status == 'PUBLISHED'}" code="employer.job.form.button.list-applications"
+		action="/employer/application/list-mine?id=${id}" method="get" />
 	<acme:form-return code="employer.job.form.button.return" />
 </acme:form>
