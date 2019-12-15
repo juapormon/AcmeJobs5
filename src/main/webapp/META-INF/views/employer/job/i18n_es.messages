@@ -8,6 +8,7 @@ employer.job.form.label.salary = Salario
 employer.job.form.label.moreInfo = Más información
 employer.job.form.label.description = Descripción
 
+employer.job.form.error.spam = Esto ha sido considerado spam por el sistema
 employer.job.form.error.incorrect-weekly-workload = Las tareas no suman el 100% de la carga de trabajo semanal
 employer.job.form.error.is-published = No puedes modificar un trabajo ya publicado
 employer.job.form.error.rejected-currency = Solo se aceptan cantidades en euros

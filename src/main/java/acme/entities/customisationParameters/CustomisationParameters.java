@@ -10,6 +10,7 @@ import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
+import org.apache.commons.lang3.StringUtils;
 import org.hibernate.validator.constraints.Range;
 
 import acme.framework.entities.DomainEntity;
@@ -37,20 +38,11 @@ public class CustomisationParameters extends DomainEntity {
 	}
 
 	public boolean isSpam(final String text) {
-		List<String> spamWords = this.getSpamWordsList();
-
-		String[] textWords = text.split(" ");
-		int wordCounter = 0;
-		int spamCounter = 0;
-		for (String word : textWords) {
-			word = word.trim().toLowerCase();
-			if (word.length() > 0) {
-				wordCounter++;
-				if (spamWords.contains(word)) {
-					spamCounter++;
-				}
-			}
+		int spamCount = 0;
+		for (String spamWord : this.getSpamWordsList()) {
+			spamCount += StringUtils.countMatches(text, spamWord);
 		}
-		return (float) spamCounter / (float) wordCounter * 100 > this.spamThreshold;
+		float spamThreshold = 0;
+		return (float) spamCount / (float) text.split("\\w+").length * 100 > spamThreshold;
 	}
 }

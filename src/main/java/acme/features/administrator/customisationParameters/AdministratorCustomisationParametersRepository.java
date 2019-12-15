@@ -18,4 +18,7 @@ public interface AdministratorCustomisationParametersRepository extends Abstract
 	@Query("select c from CustomisationParameters c where c.id = ?1")
 	CustomisationParameters findOneById(int id);
 
+	@Query("select c from CustomisationParameters c")
+	CustomisationParameters findOne();
+
 }

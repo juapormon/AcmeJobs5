@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.customisationParameters.CustomisationParameters;
 import acme.entities.jobs.Duty;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
@@ -31,4 +32,7 @@ public interface EmployerJobRepository extends AbstractRepository {
 
 	@Query("SELECT COUNT(a) FROM Application a where a.job.id = ?1")
 	Integer findTotalApplicationsByJobId(int jobId);
+
+	@Query("select c from CustomisationParameters c")
+	CustomisationParameters findOneCustomisationParameters();
 }
