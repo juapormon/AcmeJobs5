@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.jobs.Application;
+import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 
 @Service
@@ -23,7 +25,19 @@ public class EmployerApplicationListMineService implements AbstractListService<E
 	public boolean authorise(final Request<Application> request) {
 		assert request != null;
 
-		return true;
+		boolean result;
+		int jobId;
+		Job job;
+		Employer employer;
+		Principal principal;
+
+		jobId = request.getModel().getInteger("id");
+		job = this.repository.findOneJobById(jobId);
+		employer = job.getEmployer();
+		principal = request.getPrincipal();
+		result = employer.getUserAccount().getId() == principal.getAccountId();
+
+		return result;
 	}
 
 	@Override
@@ -31,9 +45,9 @@ public class EmployerApplicationListMineService implements AbstractListService<E
 		assert request != null;
 
 		Collection<Application> result;
-		int id;
-		id = request.getModel().getInteger("id");
-		result = this.repository.findManyByJobId(id);
+		int jobId;
+		jobId = request.getModel().getInteger("id");
+		result = this.repository.findManyByJobId(jobId);
 		return result;
 	}
 

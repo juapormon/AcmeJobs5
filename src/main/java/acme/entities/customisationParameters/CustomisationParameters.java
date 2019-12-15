@@ -1,12 +1,7 @@
 
 package acme.entities.customisationParameters;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import javax.persistence.Entity;
-import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
@@ -32,17 +27,14 @@ public class CustomisationParameters extends DomainEntity {
 	private float				spamThreshold;
 
 
-	@Transient
-	public List<String> getSpamWordsList() {
-		return Arrays.asList(this.spamWords.split(" ")).stream().map(x -> x.toLowerCase()).collect(Collectors.toList());
-	}
-
 	public boolean isSpam(final String text) {
+		String lowerCaseText = text.toLowerCase();
+
 		int spamCount = 0;
-		for (String spamWord : this.getSpamWordsList()) {
-			spamCount += StringUtils.countMatches(text, spamWord);
+		for (String spamWord : this.spamWords.toLowerCase().split(",")) {
+			spamCount += StringUtils.countMatches(lowerCaseText, spamWord) * spamWord.length();
 		}
-		float spamThreshold = 0;
-		return (float) spamCount / (float) text.split("\\w+").length * 100 > spamThreshold;
+
+		return (float) spamCount / text.length() * 100 > this.spamThreshold;
 	}
 }

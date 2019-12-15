@@ -90,12 +90,12 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 
 		boolean titleHasErrors = errors.hasErrors("title");
 		if (!titleHasErrors) {
-			errors.state(request, cp.isSpam(entity.getTitle()), "title", "employer.job.form.error.spam");
+			errors.state(request, !cp.isSpam(entity.getTitle()), "title", "employer.job.form.error.spam");
 		}
 
 		boolean descriptionHasErrors = errors.hasErrors("description");
 		if (!descriptionHasErrors) {
-			errors.state(request, cp.isSpam(entity.getDescription()), "description", "employer.job.form.error.spam");
+			errors.state(request, !cp.isSpam(entity.getDescription()), "description", "employer.job.form.error.spam");
 		}
 	}
 
