@@ -20,7 +20,7 @@ public class CustomisationParameters extends DomainEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	@NotBlank
-	@Pattern(regexp = "^[^,]+([,][^,]+)*$")
+	@Pattern(regexp = "^$|(^[^,]+([,][^,]+)*$)")
 	private String				spamWords;
 
 	@Range(min = 0, max = 100)
