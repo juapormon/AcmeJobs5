@@ -24,7 +24,7 @@
 		action="update" />
 	<acme:form-submit test="${(command == 'show' && status == 'DRAFT') || command == 'update'}" code="employer.job.form.button.delete"
 		action="delete" />
-	<acme:form-submit test="${(command == 'show' && status == 'DRAFT' ) || command == 'update'}"
+	<acme:form-submit test="${(command == 'show' && status == 'DRAFT') || command == 'update'}"
 		code="employer.job.form.button.add-duty" action="/employer/duty/create?jobId=${id}" method="get" />
 	<acme:form-submit test="${command != 'create'}" code="employer.job.form.button.list-duties" action="/employer/duty/list?id=${id}"
 		method="get" />
