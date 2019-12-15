@@ -22,6 +22,7 @@ employer.job.form.button.create = Crear
 employer.job.form.button.add-duty = Añadir tarea
 employer.job.form.button.list-audits = Listar auditorías
 employer.job.form.button.list-duties = Listar tareas
+employer.job.form.button.list-applications = Listar solicitudes
 employer.job.form.button.return = Volver
 
 employer.job.list.label.reference = Referencia
