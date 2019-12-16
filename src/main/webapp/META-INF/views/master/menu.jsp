@@ -61,9 +61,7 @@
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 
-			<acme:menu-suboption code="master.menu.administrator.dashboard" action="/administrator/dashboard/listing" />
-			<acme:menu-suboption code="master.menu.administrator.chart" action="/administrator/chart/chart" />
-			<acme:menu-suboption code="master.menu.administrator.jobs-chart" action="/administrator/jobs-chart/chart" />
+			<acme:menu-suboption code="master.menu.administrator.dashboard" action="/administrator/dashboard/show" />
 
 			<acme:menu-separator />
 

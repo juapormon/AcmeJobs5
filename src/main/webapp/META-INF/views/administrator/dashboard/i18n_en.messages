@@ -19,3 +19,18 @@ administrator.dashboard.form.label.jobs = Jobs
 administrator.dashboard.form.label.avgJobsPerEmployer = Average number of jobs per employer
 administrator.dashboard.form.label.avgApplicationsPerEmployer = Average number of applications per employer
 administrator.dashboard.form.label.avgApplicationsPerWorker = Average number of applications per worker
+
+administrator.dashboard.form.title.totalSectors = Total companies and investors per sector
+administrator.dashboard.form.label.investor = Investors
+administrator.dashboard.form.label.companies = Companies
+
+administrator.dashboard.form.title.applications-status = Ratio of applications grouped by status
+administrator.dashboard.form.label.application-pending = PENDING
+administrator.dashboard.form.label.application-accepted = ACCEPTED
+administrator.dashboard.form.label.application-rejected = REJECTED
+
+administrator.dashboard.form.title.jobs-status = Ratio of jobs grouped by status
+administrator.dashboard.form.label.job-draft = DRAFT
+administrator.dashboard.form.label.job-published = PUBLISHED
+
+administrator.dashboard.form.title.applications-per-day.title = Number of applications by status during the last four weeks

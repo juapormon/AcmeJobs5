@@ -86,9 +86,7 @@ master.menu.administrator.commercial-banner.list = Listar y editar banners comer
 master.menu.administrator.commercial-banner.create = Crear banner comercial
 master.menu.administrator.non-commercial-banner.list = Listar y editar banners no comerciales
 master.menu.administrator.non-commercial-banner.create = Crear banner no comercial
-master.menu.administrator.dashboard = Mostrar indicadores
-master.menu.administrator.chart = Compañías e inversores por sector
-master.menu.administrator.jobs-chart = Gráficos de los trabajos
+master.menu.administrator.dashboard = Panel de control
 
 # master.menu.provider ########################################################
 
