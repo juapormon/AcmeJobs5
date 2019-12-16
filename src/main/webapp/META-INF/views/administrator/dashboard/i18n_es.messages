@@ -19,3 +19,16 @@ administrator.dashboard.form.label.jobs = Trabajos
 administrator.dashboard.form.label.avgJobsPerEmployer = Número medio de trabajos por empleador
 administrator.dashboard.form.label.avgApplicationsPerEmployer = Número medio de solicitudes por empleador
 administrator.dashboard.form.label.avgApplicationsPerWorker = Número medio de solicitudes por trabajador
+
+administrator.dashboard.form.title.totalSectors = Compañías e inversores totales por sector
+administrator.dashboard.form.label.investor = Inversores
+administrator.dashboard.form.label.companies = Compañías
+
+administrator.dashboard.form.title.applications-status = Proporción de inscripciones agrupadas por estado
+administrator.dashboard.form.label.application-pending = PENDIENTE
+administrator.dashboard.form.label.application-accepted = ACEPTADA
+administrator.dashboard.form.label.application-rejected = RECHAZADA
+
+administrator.dashboard.form.title.jobs-status = Proporción de trabajos agrupados por estado
+administrator.dashboard.form.label.job-draft = BORRADOR
+administrator.dashboard.form.label.job-published = PUBLICADO

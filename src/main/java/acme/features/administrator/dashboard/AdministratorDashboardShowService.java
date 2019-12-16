@@ -31,8 +31,8 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		assert model != null;
 
 		request.unbind(entity, model, "totalNumberOfAnnouncements", "totalNumberOfCompanyRecords", "totalNumberOfInvestorRecords", "maxRewardOfActiveRequests", "minRewardOfActiveRequests", "avgRewardOfActiveRequests",
-			"standardDeviationRewardOfActiveRequests", "maxRewardOfActiveOffers", "minRewardOfActiveOffers", "avgRewardOfActiveOffers", "standardDeviationRewardOfActiveOffers", "avgJobsPerEmployer", "avgApplicationsPerEmployer",
-			"avgApplicationsPerWorker");
+			"standardDeviationRewardOfActiveRequests", "maxRewardOfActiveOffers", "minRewardOfActiveOffers", "avgRewardOfActiveOffers", "standardDeviationRewardOfActiveOffers", "avgJobsPerEmployer", "avgApplicationsPerEmployer", "avgApplicationsPerWorker",
+			"investorsCommonSectors", "companiesCommonSectors", "companySectors", "investorSectors", "ratioOfPublishedJobs", "ratioOfDraftJobs", "ratioOfPendingApplications", "ratioOfAcceptedApplications", "ratioOfRejectedApplications");
 	}
 
 	@Override
@@ -58,6 +58,17 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setAvgJobsPerEmployer((Double) this.repository.findAvgJobsPerEmployer()[0]);
 		result.setAvgApplicationsPerEmployer((Double) this.repository.findAvgApplicationsPerEmployer()[0]);
 		result.setAvgApplicationsPerWorker((Double) this.repository.findAvgApplicationsPerWorker()[0]);
+
+		result.setCompaniesCommonSectors(this.repository.findCompaniesCommonSectors());
+		result.setInvestorsCommonSectors(this.repository.findInvestorsCommonSectors());
+		result.setCompanySectors(this.repository.findCompanySectors());
+		result.setInvestorSectors(this.repository.findInvestorSectors());
+
+		result.setRatioOfPublishedJobs(this.repository.ratioOfPublishedJobs());
+		result.setRatioOfDraftJobs(this.repository.ratioOfDraftJobs());
+		result.setRatioOfPendingApplications(this.repository.ratioOfPendingApplications());
+		result.setRatioOfAcceptedApplications(this.repository.ratioOfAcceptedApplications());
+		result.setRatioOfRejectedApplications(this.repository.ratioOfRejectedApplications());
 
 		return result;
 	}

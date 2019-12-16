@@ -52,13 +52,11 @@ bg=blue</panel_attributes>
       <x>120</x>
       <y>265</y>
       <w>110</w>
-      <h>75</h>
+      <h>50</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Enum&gt;&gt;
 CustomCommand
 --
-+ LISTING
-+ CHART
 + LIST_TOP
 + LIST_MINE
 + LIST_NOT_MINE

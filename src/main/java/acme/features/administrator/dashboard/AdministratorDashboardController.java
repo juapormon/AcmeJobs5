@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import acme.components.CustomCommand;
 import acme.forms.Dashboard;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
@@ -23,6 +22,6 @@ public class AdministratorDashboardController extends AbstractController<Adminis
 
 	@PostConstruct
 	private void initialise() {
-		super.addCustomCommand(CustomCommand.LISTING, BasicCommand.SHOW, this.showService);
+		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 	}
 }
