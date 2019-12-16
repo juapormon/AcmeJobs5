@@ -1,6 +1,9 @@
 
 package acme.features.administrator.dashboard;
 
+import java.util.Date;
+
+import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,7 +35,8 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 
 		request.unbind(entity, model, "totalNumberOfAnnouncements", "totalNumberOfCompanyRecords", "totalNumberOfInvestorRecords", "maxRewardOfActiveRequests", "minRewardOfActiveRequests", "avgRewardOfActiveRequests",
 			"standardDeviationRewardOfActiveRequests", "maxRewardOfActiveOffers", "minRewardOfActiveOffers", "avgRewardOfActiveOffers", "standardDeviationRewardOfActiveOffers", "avgJobsPerEmployer", "avgApplicationsPerEmployer", "avgApplicationsPerWorker",
-			"investorsCommonSectors", "companiesCommonSectors", "companySectors", "investorSectors", "ratioOfPublishedJobs", "ratioOfDraftJobs", "ratioOfPendingApplications", "ratioOfAcceptedApplications", "ratioOfRejectedApplications");
+			"investorsCommonSectors", "companiesCommonSectors", "companySectors", "investorSectors", "ratioOfPublishedJobs", "ratioOfDraftJobs", "ratioOfPendingApplications", "ratioOfAcceptedApplications", "ratioOfRejectedApplications",
+			"pendingApplicationsPerDay", "acceptedApplicationsPerDay", "rejectedApplicationsPerDay");
 	}
 
 	@Override
@@ -69,6 +73,11 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setRatioOfPendingApplications(this.repository.ratioOfPendingApplications());
 		result.setRatioOfAcceptedApplications(this.repository.ratioOfAcceptedApplications());
 		result.setRatioOfRejectedApplications(this.repository.ratioOfRejectedApplications());
+
+		Date fourWeeksAgo = DateUtils.addWeeks(new Date(), -4);
+		result.setPendingApplicationsPerDay(this.repository.findPendingApplicationsPerDay(fourWeeksAgo));
+		result.setAcceptedApplicationsPerDay(this.repository.findAcceptedApplicationsPerDay(fourWeeksAgo));
+		result.setRejectedApplicationsPerDay(this.repository.findRejectedApplicationsPerDay(fourWeeksAgo));
 
 		return result;
 	}

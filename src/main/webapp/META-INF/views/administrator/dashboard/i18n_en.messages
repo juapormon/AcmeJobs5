@@ -32,3 +32,5 @@ administrator.dashboard.form.label.application-rejected = REJECTED
 administrator.dashboard.form.title.jobs-status = Ratio of jobs grouped by status
 administrator.dashboard.form.label.job-draft = DRAFT
 administrator.dashboard.form.label.job-published = PUBLISHED
+
+administrator.dashboard.form.title.applications-per-day.title = Number of applications by status during the last four weeks
