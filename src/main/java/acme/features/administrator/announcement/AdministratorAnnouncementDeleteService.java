@@ -46,6 +46,7 @@ public class AdministratorAnnouncementDeleteService implements AbstractDeleteSer
 
 	@Override
 	public Announcement findOne(final Request<Announcement> request) {
+		assert request != null;
 		// TODO Auto-generated method stub
 		Announcement result;
 		int id;

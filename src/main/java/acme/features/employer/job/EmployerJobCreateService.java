@@ -7,7 +7,6 @@ import java.util.GregorianCalendar;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.customisationParameters.CustomisationParameters;
 import acme.entities.jobs.Job;
 import acme.entities.jobs.JobStatus;
 import acme.entities.roles.Employer;
@@ -84,18 +83,6 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		if (!referenceHasErrors) {
 			Job existing = this.repository.findOneJobByReference(entity.getReference());
 			errors.state(request, existing == null, "reference", "employer.job.form.error.reference-unique");
-		}
-
-		CustomisationParameters cp = this.repository.findOneCustomisationParameters();
-
-		boolean titleHasErrors = errors.hasErrors("title");
-		if (!titleHasErrors) {
-			errors.state(request, !cp.isSpam(entity.getTitle()), "title", "employer.job.form.error.spam");
-		}
-
-		boolean descriptionHasErrors = errors.hasErrors("description");
-		if (!descriptionHasErrors) {
-			errors.state(request, !cp.isSpam(entity.getDescription()), "description", "employer.job.form.error.spam");
 		}
 	}
 

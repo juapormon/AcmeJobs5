@@ -7,7 +7,7 @@ import java.util.GregorianCalendar;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.jobs.Duty;
+import acme.entities.customisationParameters.CustomisationParameters;
 import acme.entities.jobs.Job;
 import acme.entities.jobs.JobStatus;
 import acme.entities.roles.Employer;
@@ -68,24 +68,20 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		assert entity != null;
 		assert errors != null;
 
-		Job job = this.repository.findOneJobById(entity.getId());
-		boolean isDraft = job.getStatus() == JobStatus.DRAFT;
-		errors.state(request, isDraft, "status", "employer.job.form.error.is-published");
+		boolean statusHasErrors = errors.hasErrors("status");
+		if (!statusHasErrors) {
+			if (entity.getStatus() == JobStatus.PUBLISHED) {
+				Float weeklyWorkload = this.repository.findWeeklyWorkloadByJobId(entity.getId());
+				boolean correctWeeklyWorkload = weeklyWorkload != null && weeklyWorkload == 100;
+				errors.state(request, correctWeeklyWorkload, "description", "employer.job.form.error.incorrect-weekly-workload");
 
-		if (isDraft && entity.getStatus() == JobStatus.PUBLISHED) {
-			float sum = 0;
-			for (Duty duty : this.repository.findManyDutiesByJobId(entity.getId())) {
-				sum += duty.getWeekPercentage();
-			}
-
-			boolean correctWeeklyWorkload = sum == 100;
-			errors.state(request, correctWeeklyWorkload, "description", "employer.job.form.error.incorrect-weekly-workload");
-			if (!correctWeeklyWorkload) {
-				entity.setStatus(JobStatus.DRAFT);
+				boolean descriptionHasErrors = errors.hasErrors("status");
+				if (!descriptionHasErrors) {
+					boolean descriptionNotEmpty = entity.getDescription().length() > 0;
+					errors.state(request, descriptionNotEmpty, "description", "employer.job.form.error.empty-description");
+				}
 			}
 		}
-
-		job.setStatus(JobStatus.DRAFT);
 
 		boolean salaryHasErrors = errors.hasErrors("salary");
 		if (!salaryHasErrors) {
@@ -104,6 +100,18 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		if (!referenceHasErrors) {
 			Job existing = this.repository.findOneJobByReference(entity.getReference());
 			errors.state(request, existing == null || existing.getId() == entity.getId(), "reference", "employer.job.form.error.reference-unique");
+		}
+
+		CustomisationParameters cp = this.repository.findOneCustomisationParameters();
+
+		boolean titleHasErrors = errors.hasErrors("title");
+		if (!titleHasErrors) {
+			errors.state(request, !cp.isSpam(entity.getTitle()), "title", "employer.job.form.error.spam");
+		}
+
+		boolean descriptionHasErrors = errors.hasErrors("description");
+		if (!descriptionHasErrors) {
+			errors.state(request, !cp.isSpam(entity.getDescription()), "description", "employer.job.form.error.spam");
 		}
 	}
 

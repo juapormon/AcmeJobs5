@@ -15,6 +15,7 @@ employer.job.form.error.rejected-currency = Only EUR are allowed
 employer.job.form.error.must-future = The deadline must be in the future
 employer.job.form.error.reference-unique = The reference must be unique
 employer.job.form.error.cant-delete = This jobs has applications; you can not delete a job with applications
+employer.job.form.error.empty-description = A published job must have a description
 
 employer.job.form.button.update = Update
 employer.job.form.button.delete = Delete

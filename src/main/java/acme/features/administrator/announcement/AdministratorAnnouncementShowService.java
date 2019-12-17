@@ -35,7 +35,6 @@ public class AdministratorAnnouncementShowService implements AbstractShowService
 
 	@Override
 	public Announcement findOne(final Request<Announcement> request) {
-
 		assert request != null;
 		Announcement result;
 		int id;

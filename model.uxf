@@ -254,7 +254,7 @@ Job
 + deadline: Date {Temporal(TIMESTAMP)}
 + salary: Money {NotNull}
 + moreInfo: String {URL}
-+ description: String {NotBlank}</panel_attributes>
++ description: String</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
