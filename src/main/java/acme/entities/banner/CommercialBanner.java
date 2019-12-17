@@ -2,6 +2,8 @@
 package acme.entities.banner;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -9,6 +11,7 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.CreditCardNumber;
 import org.hibernate.validator.constraints.Range;
 
+import acme.entities.roles.Sponsor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -34,5 +37,11 @@ public class CommercialBanner extends Banner {
 	@Range(min = 2000, max = 9999)
 	@NotNull
 	private Integer				creditCardYear;
+
+	// D05 ---------------------------
+
+	@Valid
+	@ManyToOne(optional = true)
+	private Sponsor				sponsor;
 
 }

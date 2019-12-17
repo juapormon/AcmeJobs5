@@ -2,9 +2,12 @@
 package acme.entities.banner;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 
 import org.hibernate.validator.constraints.URL;
 
+import acme.entities.roles.Sponsor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,4 +20,10 @@ public class NonCommercialBanner extends Banner {
 
 	@URL
 	private String				jingle;
+
+	// D05 -------------------------------
+
+	@Valid
+	@ManyToOne(optional = true)
+	private Sponsor				sponsor;
 }

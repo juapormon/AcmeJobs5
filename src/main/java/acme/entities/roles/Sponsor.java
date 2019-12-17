@@ -25,4 +25,20 @@ public class Sponsor extends UserRole {
 	@OneToOne(optional = true)
 	private CreditCard			creditCard;
 
+	//	@NotBlank
+	//	@CreditCardNumber
+	//	private String				creditCardNumber;
+	//
+	//	@NotBlank
+	//	@Pattern(regexp = "^[0-9]{3,4}$")
+	//	private String				creditCardCvv;
+	//
+	//	@Range(min = 1, max = 12)
+	//	@NotNull
+	//	private Integer				creditCardMonth;
+	//
+	//	@Range(min = 2000, max = 9999)
+	//	@NotNull
+	//	private Integer				creditCardYear;
+
 }
