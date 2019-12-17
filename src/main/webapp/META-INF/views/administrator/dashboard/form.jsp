@@ -253,9 +253,6 @@
 				xAxes: [{
 					type: "time",
 			        distribution: "linear",
-			        ticks: {
-			            autoSkip: false
-			        },
 			        time: {
 	                    min: fourWeeksAgo,
 	                    max: new Date(),
@@ -265,13 +262,18 @@
 				}],
 				yAxes : [{
 					ticks : {
+						suggestedMin: 0,
 						stepSize: 1
 					}
 				}]
 			},
 			legend : {
 				display : true
-			}
+			},
+			tooltips: {
+				mode: "x",
+				intersect: false
+	        }
 		};
 
 		var canvas, context;

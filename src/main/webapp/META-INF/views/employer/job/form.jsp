@@ -22,7 +22,7 @@
 	<acme:form-submit test="${command == 'create'}" code="employer.job.form.button.create" action="create" />
 	<acme:form-submit test="${(command == 'show' && status == 'DRAFT') || command == 'update'}" code="employer.job.form.button.update"
 		action="update" />
-	<acme:form-submit test="${(command == 'show' && status == 'DRAFT') || command == 'update'}" code="employer.job.form.button.delete"
+	<acme:form-submit test="${command != 'create'}" code="employer.job.form.button.delete"
 		action="delete" />
 	<acme:form-submit test="${(command == 'show' && status == 'DRAFT') || command == 'update'}"
 		code="employer.job.form.button.add-duty" action="/employer/duty/create?jobId=${id}" method="get" />

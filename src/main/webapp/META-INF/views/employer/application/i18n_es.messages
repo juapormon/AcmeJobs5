@@ -10,6 +10,8 @@ employer.application.form.label.qualifications = Cualificaciones
 employer.application.form.label.rejectionJustification = Justificación de rechazo
 employer.application.form.label.job.reference = Referencia del trabajo
 
+employer.application.form.error.rejectionJustification = Debes justificar el rechazo de la solicitud
+
 employer.application.form.button.update = Actualizar
 employer.application.form.button.return = Volver
 

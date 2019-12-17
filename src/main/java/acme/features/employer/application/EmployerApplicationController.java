@@ -18,6 +18,8 @@ import acme.framework.controllers.AbstractController;
 public class EmployerApplicationController extends AbstractController<Employer, Application> {
 
 	@Autowired
+	private EmployerApplicationUpdateService	updateService;
+	@Autowired
 	private EmployerApplicationShowService		showService;
 	@Autowired
 	private EmployerApplicationListService		listService;
@@ -27,6 +29,7 @@ public class EmployerApplicationController extends AbstractController<Employer, 
 
 	@PostConstruct
 	private void initialise() {
+		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 		super.addBasicCommand(BasicCommand.LIST, this.listService);
 		super.addCustomCommand(CustomCommand.LIST_MINE, BasicCommand.LIST, this.listMineService);

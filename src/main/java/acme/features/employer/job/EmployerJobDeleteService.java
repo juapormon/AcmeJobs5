@@ -75,6 +75,7 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		assert errors != null;
 
 		boolean hasApplications = this.repository.findTotalApplicationsByJobId(entity.getId()) > 0;
+		System.out.println(entity.getDescription());
 		errors.state(request, !hasApplications, "descriptor.description", "employer.job.form.error.cant-delete");
 	}
 
