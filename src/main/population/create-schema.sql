@@ -29,6 +29,7 @@
         `moment` datetime(6),
         `qualifications` varchar(255),
         `reference` varchar(255),
+        `rejection_justification` varchar(255),
         `skills` varchar(255),
         `statement` varchar(255),
         `status` integer,
