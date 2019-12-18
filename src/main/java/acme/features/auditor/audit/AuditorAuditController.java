@@ -17,11 +17,11 @@ import acme.framework.controllers.AbstractController;
 
 public class AuditorAuditController extends AbstractController<Auditor, Audit> {
 
-	//	@Autowired
-	//	AuditorAuditRecordListService	listService;
+	@Autowired
+	AuditorAuditListService		listService;
 
 	@Autowired
-	AuditorAuditShowService	showService;
+	AuditorAuditShowService		showService;
 
 	@Autowired
 	AuditorAuditCreateService	createService;
@@ -32,7 +32,7 @@ public class AuditorAuditController extends AbstractController<Auditor, Audit> {
 
 	@PostConstruct
 	private void initialise() {
-		//	super.addBasicCommand(BasicCommand.LIST, this.listService);
+		super.addBasicCommand(BasicCommand.LIST, this.listService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
 		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
