@@ -24,7 +24,7 @@ public interface AuthenticatedMessageRepository extends AbstractRepository {
 	@Query("select m from Message m where m.messageThread.id = ?1")
 	Collection<Message> findManyByMessageThreadId(Integer messageThreadId);
 
-	@Query("select count(mt)>0 from MessageThread mt join mt.participants p where mt.id = ?1 and p.id = ?2")
+	@Query("select count(p)>0 from Participant p where p.messageThread.id = ?1 and p.authenticated.id = ?2")
 	Boolean findExistsMessageThreadParticipant(int messageThreadId, int authenticatedId);
 
 	@Query("select a from Authenticated a where a.id = ?1")

@@ -1,0 +1,9 @@
+sponsor.credit-card.form.label.creditCardNumber= Credit card:
+sponsor.credit-card.form.label.creditCardCvv= CVV:
+sponsor.credit-card.form.label.creditCardMonth=Expiration month:
+sponsor.credit-card.form.label.creditCardYear=Expiration year:
+
+sponsor.credit-card.form.button.create = Create
+sponsor.credit-card.form.button.update = Update
+sponsor.credit-card.form.button.delete = Delete
+sponsor.credit-card.form.button.return = Return

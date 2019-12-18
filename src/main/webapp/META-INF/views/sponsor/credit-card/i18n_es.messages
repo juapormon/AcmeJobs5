@@ -1,0 +1,9 @@
+sponsor.credit-card.form.label.creditCardNumber= Tarjeta de crédito:
+sponsor.credit-card.form.label.creditCardCvv= CVV:
+sponsor.credit-card.form.label.creditCardMonth=Mes de vencimiento:
+sponsor.credit-card.form.label.creditCardYear=Año de vencimiento:
+
+sponsor.credit-card.form.button.create = Crear
+sponsor.credit-card.form.button.update = Actualizar
+sponsor.credit-card.form.button.delete = Eliminar
+sponsor.credit-card.form.button.return = Volver

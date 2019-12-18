@@ -17,10 +17,9 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:list>
-	<acme:list-column code="employer.application.list.label.reference" path="reference" width="10%" />
-	<acme:list-column code="employer.application.list.label.moment" path="moment" width="10%" />
-	<acme:list-column code="employer.application.list.label.status" path="status" width="10%" />
-	<acme:list-column code="employer.application.list.label.statement" path="statement" width="70%" />
+	<acme:list-column code="employer.application.list.label.reference" path="reference" width="30%" />
+	<acme:list-column code="employer.application.list.label.moment" path="moment" width="30%" />
+	<acme:list-column code="employer.application.list.label.status" path="status" width="40%" />
 </acme:list>
 
 

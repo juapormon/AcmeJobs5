@@ -16,9 +16,31 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:form-textbox code="authenticated.sponsor.form.label.organisationName" path="organisationName"/>
+	<acme:form-textbox code="authenticated.sponsor.form.label.organisationName" path="organisationName" />
 
-	<acme:form-submit test="${command == 'create'}" code="authenticated.sponsor.form.button.create" action="/authenticated/sponsor/create"/>
-	<acme:form-submit test="${command == 'update'}" code="authenticated.sponsor.form.button.update" action="/authenticated/sponsor/update"/>
-	<acme:form-return code="authenticated.sponsor.form.button.return"/>
+	<acme:form-submit test="${command == 'create'}" code="authenticated.sponsor.form.button.create"
+		action="/authenticated/sponsor/create" />
+	<jstl:choose>
+		<jstl:when test="${requestScope['creditCard'] == null}">
+			<acme:form-submit test="${command != 'create'}" code="authenticated.sponsor.form.button.add-credit-card"
+				action="/sponsor/credit-card/create" method="get" />
+		</jstl:when>
+		<jstl:otherwise>
+			<acme:form-submit test="${command != 'create'}" code="authenticated.sponsor.form.button.edit-credit-card"
+				action="/sponsor/credit-card/update?id=${requestScope['creditCard'].id}" method="get" />
+		</jstl:otherwise>
+	</jstl:choose>
+	<acme:form-submit test="${command != 'create'}" code="authenticated.sponsor.form.button.update"
+		action="/authenticated/sponsor/update" />
+	<acme:form-return code="authenticated.sponsor.form.button.return" />
 </acme:form>
+
+<%--
+<jstl:forEach items="${requestScope}" var="item">
+	<jstl:out value="${item.key}" />
+	</br>
+	<jstl:out value="${item.value}" />
+	</br>
+	</br>
+</jstl:forEach>
+--%>

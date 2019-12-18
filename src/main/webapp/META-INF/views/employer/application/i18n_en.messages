@@ -10,6 +10,8 @@ employer.application.form.label.qualifications = Qualifications
 employer.application.form.label.rejectionJustification = Rejection justification
 employer.application.form.label.job.reference = Job reference
 
+employer.application.form.error.rejectionJustification = You must write a justification for the rejection
+
 employer.application.form.button.update = Update
 employer.application.form.button.return = Return
 

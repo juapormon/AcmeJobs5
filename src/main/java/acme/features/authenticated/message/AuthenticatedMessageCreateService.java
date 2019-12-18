@@ -49,7 +49,7 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 		assert model != null;
 
 		model.setAttribute("threadId", request.getModel().getInteger("threadId"));
-		request.unbind(entity, model, "title", "moment", "body", "tags", "creator.userAccount.username");
+		request.unbind(entity, model, "title", "body", "tags", "creator.userAccount.username");
 	}
 
 	@Override
@@ -71,7 +71,7 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 		assert errors != null;
 
 		boolean isConfirmed = request.getModel().getString("confirm").length() > 0 && request.getModel().getBoolean("confirm");
-		errors.state(request, isConfirmed, "confirm", "authenticated.message.error.must-confirm");
+		errors.state(request, isConfirmed, "confirm", "authenticated.message.form.error.must-confirm");
 
 		CustomisationParameters cp = this.repository.findOneCustomisationParameters();
 
@@ -83,6 +83,11 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 		boolean bodyHasErrors = errors.hasErrors("body");
 		if (!bodyHasErrors) {
 			errors.state(request, !cp.isSpam(entity.getBody()), "body", "authenticated.message.form.error.spam");
+		}
+
+		boolean tagsHasErrors = errors.hasErrors("tags");
+		if (!tagsHasErrors) {
+			errors.state(request, !cp.isSpam(entity.getTags()), "tags", "authenticated.message.form.error.spam");
 		}
 	}
 

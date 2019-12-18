@@ -45,7 +45,7 @@ public class AuthenticatedSponsorUpdateService implements AbstractUpdateService<
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "organisationName");
+		request.unbind(entity, model, "organisationName", "creditCard");
 
 	}
 

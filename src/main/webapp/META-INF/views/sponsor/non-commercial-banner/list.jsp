@@ -4,6 +4,6 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:list>
-	<acme:list-column code="sponsor.non-commercial-banner.list.label.slogan" path="slogan" width="40%"/>		
-	<acme:list-column code="sponsor.non-commercial-banner.list.label.url" path="url" width="20%"/>
+	<acme:list-column code="sponsor.non-commercial-banner.list.label.targetURL" path="targetURL" width="50%" />
+	<acme:list-column code="sponsor.non-commercial-banner.list.label.slogan" path="slogan" width="50%" />
 </acme:list>

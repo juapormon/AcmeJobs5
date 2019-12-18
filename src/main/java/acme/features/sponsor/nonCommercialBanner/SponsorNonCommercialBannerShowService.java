@@ -22,17 +22,11 @@ public class SponsorNonCommercialBannerShowService implements AbstractShowServic
 	public boolean authorise(final Request<NonCommercialBanner> request) {
 		assert request != null;
 
-		boolean result;
-		int nonCommercialBannerId;
-		NonCommercialBanner nonCommercialBanner;
-		Sponsor sponsor;
-		Principal principal;
-
-		nonCommercialBannerId = request.getModel().getInteger("id");
-		nonCommercialBanner = this.repository.findOneNonCommercialBannerById(nonCommercialBannerId);
-		sponsor = nonCommercialBanner.getSponsor();
-		principal = request.getPrincipal();
-		result = sponsor.getUserAccount().getId() == principal.getAccountId();
+		int ncbId = request.getModel().getInteger("id");
+		NonCommercialBanner ncb = this.repository.findOneById(ncbId);
+		Sponsor sponsor = ncb.getSponsor();
+		Principal principal = request.getPrincipal();
+		boolean result = sponsor.getUserAccount().getId() == principal.getAccountId();
 
 		return result;
 	}
@@ -54,7 +48,7 @@ public class SponsorNonCommercialBannerShowService implements AbstractShowServic
 		int id;
 
 		id = request.getModel().getInteger("id");
-		result = this.repository.findOneNonCommercialBannerById(id);
+		result = this.repository.findOneById(id);
 
 		return result;
 	}

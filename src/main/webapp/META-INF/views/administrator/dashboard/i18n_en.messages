@@ -21,8 +21,8 @@ administrator.dashboard.form.label.avgApplicationsPerEmployer = Average number o
 administrator.dashboard.form.label.avgApplicationsPerWorker = Average number of applications per worker
 
 administrator.dashboard.form.title.totalSectors = Total companies and investors per sector
-administrator.dashboard.form.label.investor = Investors
-administrator.dashboard.form.label.companies = Companies
+administrator.dashboard.form.label.investor = INVESTORS
+administrator.dashboard.form.label.companies = COMPANIES
 
 administrator.dashboard.form.title.applications-status = Ratio of applications grouped by status
 administrator.dashboard.form.label.application-pending = PENDING

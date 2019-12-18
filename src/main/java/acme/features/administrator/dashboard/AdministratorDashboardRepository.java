@@ -80,12 +80,12 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	@Query("select 1.0 * count(a) / (select count(b) from Application b) from Application a where a.status = acme.entities.jobs.ApplicationStatus.REJECTED")
 	Double ratioOfRejectedApplications();
 
-	@Query("select a.moment, count(a), a.status from Application a where a.moment >= ?1 group by day(a.moment), month(a.moment), year(a.moment) having a.status = acme.entities.jobs.ApplicationStatus.PENDING")
+	@Query("select a.moment, count(a) from Application a where a.moment >= ?1 and a.status = acme.entities.jobs.ApplicationStatus.PENDING group by day(a.moment), month(a.moment), year(a.moment)")
 	Object[] findPendingApplicationsPerDay(Date after);
 
-	@Query("select a.moment, count(a), a.status from Application a where a.moment >= ?1 group by day(a.moment), month(a.moment), year(a.moment) having a.status = acme.entities.jobs.ApplicationStatus.ACCEPTED")
+	@Query("select a.moment, count(a) from Application a where a.moment >= ?1 and a.status = acme.entities.jobs.ApplicationStatus.ACCEPTED group by day(a.moment), month(a.moment), year(a.moment)")
 	Object[] findAcceptedApplicationsPerDay(Date after);
 
-	@Query("select a.moment, count(a), a.status from Application a where a.moment >= ?1 group by day(a.moment), month(a.moment), year(a.moment) having a.status = acme.entities.jobs.ApplicationStatus.REJECTED")
+	@Query("select a.moment, count(a) from Application a where a.moment >= ?1 and a.status = acme.entities.jobs.ApplicationStatus.REJECTED group by day(a.moment), month(a.moment), year(a.moment)")
 	Object[] findRejectedApplicationsPerDay(Date after);
 }

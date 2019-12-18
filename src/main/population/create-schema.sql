@@ -59,6 +59,16 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `auditor_request` (
+       `id` integer not null,
+        `version` integer not null,
+        `firm` varchar(255),
+        `responsability_statement` varchar(255),
+        `status` integer,
+        `user_account_id` integer not null,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `authenticated` (
        `id` integer not null,
         `version` integer not null,
@@ -232,11 +242,6 @@
         primary key (`id`)
     ) engine=InnoDB;
 
-    create table `message_thread_authenticated` (
-       `message_thread_id` integer not null,
-        `participants_id` integer not null
-    ) engine=InnoDB;
-
     create table `non_commercial_banner` (
        `id` integer not null,
         `version` integer not null,
@@ -260,6 +265,14 @@
         `moment` datetime(6),
         `ticker` varchar(255),
         `title` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `participant` (
+       `id` integer not null,
+        `version` integer not null,
+        `authenticated_id` integer not null,
+        `message_thread_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -399,6 +412,11 @@ create index IDXnfbpi0hue0rf52f7hot7cxy9q on `req` (`deadline`);
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
+    alter table `auditor_request` 
+       add constraint `FKe7pjjdlehi2gl4wqda0druv4g` 
+       foreign key (`user_account_id`) 
+       references `user_account` (`id`);
+
     alter table `authenticated` 
        add constraint FK_h52w0f3wjoi68b63wv9vwon57 
        foreign key (`user_account_id`) 
@@ -444,20 +462,20 @@ create index IDXnfbpi0hue0rf52f7hot7cxy9q on `req` (`deadline`);
        foreign key (`creator_id`) 
        references `authenticated` (`id`);
 
-    alter table `message_thread_authenticated` 
-       add constraint `FK2buymmljcjk3s7ul9ex3bux46` 
-       foreign key (`participants_id`) 
-       references `authenticated` (`id`);
-
-    alter table `message_thread_authenticated` 
-       add constraint `FKjb0tx79q4dpibs3mnkp6wfqvf` 
-       foreign key (`message_thread_id`) 
-       references `message_thread` (`id`);
-
     alter table `non_commercial_banner` 
        add constraint FK_2l8gpcwh19e7jj513or4r9dvb 
        foreign key (`sponsor_id`) 
        references `sponsor` (`id`);
+
+    alter table `participant` 
+       add constraint `FK80gruu22vbyiojed5sawtqc6a` 
+       foreign key (`authenticated_id`) 
+       references `authenticated` (`id`);
+
+    alter table `participant` 
+       add constraint `FK162v6eiogk4jr8ykjoe80255x` 
+       foreign key (`message_thread_id`) 
+       references `message_thread` (`id`);
 
     alter table `provider` 
        add constraint FK_b1gwnjqm6ggy9yuiqm0o4rlmd 

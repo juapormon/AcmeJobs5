@@ -21,16 +21,13 @@ public class SponsorCommercialBannerShowService implements AbstractShowService<S
 	@Override
 	public boolean authorise(final Request<CommercialBanner> request) {
 		assert request != null;
-		boolean result;
-		int cBannerId;
-		CommercialBanner cBanner;
-		Sponsor sponsor;
-		Principal principal;
-		cBannerId = request.getModel().getInteger("id");
-		cBanner = this.repository.findOneCommercialBannerById(cBannerId);
-		sponsor = cBanner.getSponsor();
-		principal = request.getPrincipal();
-		result = cBanner.isTransient() || !cBanner.isTransient() && sponsor.getUserAccount().getId() == principal.getAccountId();
+
+		int cbId = request.getModel().getInteger("id");
+		CommercialBanner cb = this.repository.findOneById(cbId);
+		Sponsor sponsor = cb.getSponsor();
+		Principal principal = request.getPrincipal();
+		boolean result = sponsor.getUserAccount().getId() == principal.getAccountId();
+
 		return result;
 	}
 
@@ -41,7 +38,6 @@ public class SponsorCommercialBannerShowService implements AbstractShowService<S
 		assert model != null;
 
 		request.unbind(entity, model, "picture", "slogan", "targetURL", "creditCardNumber", "creditCardCvv", "creditCardMonth", "creditCardYear");
-
 	}
 
 	@Override
@@ -50,8 +46,9 @@ public class SponsorCommercialBannerShowService implements AbstractShowService<S
 
 		CommercialBanner result;
 		int id;
+
 		id = request.getModel().getInteger("id");
-		result = this.repository.findOneCommercialBannerById(id);
+		result = this.repository.findOneById(id);
 
 		return result;
 	}

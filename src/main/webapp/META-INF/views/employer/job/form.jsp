@@ -22,15 +22,15 @@
 	<acme:form-submit test="${command == 'create'}" code="employer.job.form.button.create" action="create" />
 	<acme:form-submit test="${(command == 'show' && status == 'DRAFT') || command == 'update'}" code="employer.job.form.button.update"
 		action="update" />
-	<acme:form-submit test="${(command == 'show' && status == 'DRAFT') || command == 'update'}" code="employer.job.form.button.delete"
+	<acme:form-submit test="${command != 'create'}" code="employer.job.form.button.delete"
 		action="delete" />
 	<acme:form-submit test="${(command == 'show' && status == 'DRAFT') || command == 'update'}"
 		code="employer.job.form.button.add-duty" action="/employer/duty/create?jobId=${id}" method="get" />
 	<acme:form-submit test="${command != 'create'}" code="employer.job.form.button.list-duties" action="/employer/duty/list?id=${id}"
 		method="get" />
-	<acme:form-submit test="${command == 'show' && status == 'PUBLISHED'}" code="employer.job.form.button.list-audits"
+	<acme:form-submit test="${(command == 'show' || command == 'delete') && status == 'PUBLISHED'}" code="employer.job.form.button.list-audits"
 		action="/authenticated/audit/list?id=${id}" method="get" />
-	<acme:form-submit test="${command == 'show' && status == 'PUBLISHED'}" code="employer.job.form.button.list-applications"
+	<acme:form-submit test="${(command == 'show' || command == 'delete') && status == 'PUBLISHED'}" code="employer.job.form.button.list-applications"
 		action="/employer/application/list-mine?id=${id}" method="get" />
 	<acme:form-return code="employer.job.form.button.return" />
 </acme:form>

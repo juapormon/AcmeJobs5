@@ -2,7 +2,13 @@ sponsor.non-commercial-banner.form.label.picture = Picture
 sponsor.non-commercial-banner.form.label.slogan = Slogan
 sponsor.non-commercial-banner.form.label.targetURL = URL
 sponsor.non-commercial-banner.form.label.jingle = Jingle
+
+sponsor.non-commercial-banner.form.error.spam = This has been considered spam by the system
+
+sponsor.non-commercial-banner.form.button.create = Create
+sponsor.non-commercial-banner.form.button.update = Update
+sponsor.non-commercial-banner.form.button.delete = Delete
 sponsor.non-commercial-banner.form.button.return = Return
 
 sponsor.non-commercial-banner.list.label.slogan = Slogan
-sponsor.non-commercial-banner.list.label.url = URL
+sponsor.non-commercial-banner.list.label.targetURL = Target URL
