@@ -5,7 +5,7 @@ authenticated.message.form.label.body = Body
 authenticated.message.form.label.tags = Tags
 authenticated.message.form.label.confirm = Confirm
 
-authenticated.message.error.must-confirm = You have not confirmed the creation
+authenticated.message.form.error.must-confirm = You have not confirmed the creation
 authenticated.message.form.error.spam = This has been considered spam by the system
 
 authenticated.message.form.button.create = Create

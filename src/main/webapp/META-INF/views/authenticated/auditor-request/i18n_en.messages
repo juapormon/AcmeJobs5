@@ -1,0 +1,11 @@
+authenticated.auditor-request.form.label.firm = Firm
+authenticated.auditor-request.form.label.responsabilityStatement = Responsability Statement
+authenticated.auditor-request.form.label.status = Status
+authenticated.auditor-request.form.label.status.pending = Pending
+authenticated.auditor-request.form.label.status.accepted = Accepted
+authenticated.auditor-request.form.label.status.rejected = Rejected
+
+authenticated.auditor-request.form.error.noMorePending = You already have a pending request
+
+authenticated.auditor-request.form.button.create = Register
+authenticated.auditor-request.form.button.return = Return

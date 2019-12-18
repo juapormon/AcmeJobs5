@@ -610,12 +610,16 @@
 		<property name="title" value="Thread 1 de ejemplo" />
 		<property name="moment" value="2019/10/27 23:59" />
 		<property name="creator" ref="worker1Authenticated" />
-		<property name="participants">
-			<list>
-				<ref bean="worker1Authenticated" />
-				<ref bean="employer2Authenticated" />
-			</list>
-		</property>
+	</bean>
+
+	<bean name="messageThread1participant1" class="acme.entities.message.Participant">
+		<property name="messageThread" ref="messageThread1" />
+		<property name="authenticated" ref="worker1Authenticated" />
+	</bean>
+
+	<bean name="messageThread1participant2" class="acme.entities.message.Participant">
+		<property name="messageThread" ref="messageThread1" />
+		<property name="authenticated" ref="employer2Authenticated" />
 	</bean>
 
 	<bean name="messageThread1message1" class="acme.entities.message.Message">
@@ -655,12 +659,16 @@
 		<property name="title" value="Thread 2 de ejemplo" />
 		<property name="moment" value="2018/10/27 23:59" />
 		<property name="creator" ref="auditor1Authenticated" />
-		<property name="participants">
-			<list>
-				<ref bean="auditor1Authenticated" />
-				<ref bean="worker1Authenticated" />
-			</list>
-		</property>
+	</bean>
+
+	<bean name="messageThread2participant1" class="acme.entities.message.Participant">
+		<property name="messageThread" ref="messageThread2" />
+		<property name="authenticated" ref="auditor1Authenticated" />
+	</bean>
+
+	<bean name="messageThread2participant2" class="acme.entities.message.Participant">
+		<property name="messageThread" ref="messageThread2" />
+		<property name="authenticated" ref="worker1Authenticated" />
 	</bean>
 
 	<bean name="messageThread2message1" class="acme.entities.message.Message">

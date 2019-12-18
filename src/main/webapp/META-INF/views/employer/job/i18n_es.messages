@@ -15,6 +15,7 @@ employer.job.form.error.rejected-currency = Solo se aceptan cantidades en euros
 employer.job.form.error.must-future = La fecha límite debe estar en el futuro
 employer.job.form.error.reference-unique = La referencia debe ser única
 employer.job.form.error.cant-delete = Este trabajo tiene solicitudes; no puedes borrar un trabajo con solicitudes
+employer.job.form.error.empty-description = Un trabajo publicado debe tener una descripción
 
 employer.job.form.button.update = Actualizar
 employer.job.form.button.delete = Borrar

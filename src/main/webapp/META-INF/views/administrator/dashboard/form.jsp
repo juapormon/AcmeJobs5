@@ -115,25 +115,15 @@
 			],
 			datasets : [
 				{
-					backgroundColor:"#F5B7B1",
+					backgroundColor: [ "#AEB6BF", "#A9CCE3" ],
 					data : [ <jstl:out value='${ratioOfDraftJobs}'/>, <jstl:out value='${ratioOfPublishedJobs}'/> ]
 				}
 			]
 		};
 
 		var options = {
-			scales : {
-				yAxes : [
-					{
-						ticks : {
-							suggestedMin : 0.0,
-							suggestedMax : 1.0
-						}
-					}
-				]
-			},
 			legend : {
-				display : false
+				display : true
 			}
 		};
 
@@ -141,7 +131,7 @@
 		canvas = document.getElementById("jobs-canvas");
 		context = canvas.getContext("2d");
 		new Chart(context, {
-			type : "bar",
+			type : "pie",
 			data : data,
 			options : options
 		});
@@ -166,7 +156,7 @@
 			],
 			datasets : [
 				{
-					backgroundColor:"#FDEBD0",
+					backgroundColor: [ "#AED6F1", "#ABEBC6", "#F5CBA7" ],
 					data : [ <jstl:out value='${ratioOfPendingApplications}'/>, <jstl:out value='${ratioOfAcceptedApplications}'/>,
 						<jstl:out value='${ratioOfRejectedApplications}'/>]
 				}
@@ -174,18 +164,8 @@
 		};
 
 		var options = {
-			scales : {
-				yAxes : [
-					{
-						ticks : {
-							suggestedMin : 0.0,
-							suggestedMax : 1.0
-						}
-					}
-				]
-			},
 			legend : {
-				display : false
+				display : true
 			}
 		};
 
@@ -193,7 +173,7 @@
 		canvas = document.getElementById("applications-canvas");
 		context = canvas.getContext("2d");
 		new Chart(context, {
-			type : "bar",
+			type : "pie",
 			data : data,
 			options : options
 		});
@@ -253,9 +233,6 @@
 				xAxes: [{
 					type: "time",
 			        distribution: "linear",
-			        ticks: {
-			            autoSkip: false
-			        },
 			        time: {
 	                    min: fourWeeksAgo,
 	                    max: new Date(),
@@ -265,13 +242,18 @@
 				}],
 				yAxes : [{
 					ticks : {
+						suggestedMin: 0,
 						stepSize: 1
 					}
 				}]
 			},
 			legend : {
 				display : true
-			}
+			},
+			tooltips: {
+				mode: "x",
+				intersect: false
+	        }
 		};
 
 		var canvas, context;

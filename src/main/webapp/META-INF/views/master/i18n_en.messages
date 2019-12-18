@@ -65,7 +65,8 @@ master.menu.anonymous.create-bulletin-4 = Publish in Sergio's bulletin
 master.menu.authenticated = Authenticated
 
 master.menu.authenticated.list-jobs = List jobs
-master.menu.authenticated.list-my-message-threads = List my threads
+master.menu.authenticated.create-message-thread = Create a message thread
+master.menu.authenticated.list-my-message-threads = List my message threads
 
 # master.menu.administrator ###################################################
 
@@ -86,6 +87,7 @@ master.menu.administrator.commercial-banner.list = List and edit commercial bann
 master.menu.administrator.commercial-banner.create = Create commercial banner
 master.menu.administrator.non-commercial-banner.list = List and edit non-commercial banners
 master.menu.administrator.non-commercial-banner.create = Create non-commercial banner
+master.menu.administrator.list-auditor-requests = List auditors requests
 master.menu.administrator.dashboard = Dashboard
 
 # master.menu.provider ########################################################
@@ -139,9 +141,10 @@ master.menu.user-account.become-worker = Become worker
 master.menu.user-account.worker = Worker data
 master.menu.user-account.employer = Employer data
 master.menu.user-account.become-employer = Become an employer
+master.menu.user-account.auditor = Auditor data
+master.menu.user-account.auditor-request = Send request to become an auditor
 master.menu.user-account.sponsor = Sponsor data
 master.menu.user-account.become-sponsor = Become a sponsor
-
 
 # master.footer ###############################################################
 

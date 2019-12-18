@@ -65,6 +65,8 @@
 
 			<acme:menu-separator />
 
+			<acme:menu-suboption code="master.menu.administrator.list-auditor-requests" action="/administrator/auditor-request/list" />
+
 			<acme:menu-suboption code="master.menu.administrator.list-announcement" action="/administrator/announcement/list" />
 			<acme:menu-suboption code="master.menu.administrator.create-announcement" action="/administrator/announcement/create" />
 
@@ -97,6 +99,7 @@
 
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.authenticated.list-jobs" action="/authenticated/job/list" />
+			<acme:menu-suboption code="master.menu.authenticated.create-message-thread" action="/authenticated/message-thread/create" />
 			<acme:menu-suboption code="master.menu.authenticated.list-my-message-threads" action="/authenticated/message-thread/list-mine" />
 		</acme:menu-option>
 
@@ -152,6 +155,10 @@
 			<acme:menu-separator />
 
 			<acme:menu-suboption code="master.menu.user-account.general-data" action="/authenticated/user-account/update" />
+			<acme:menu-suboption code="master.menu.user-account.auditor-request" action="/authenticated/auditor-request/create"
+				access="!hasRole('Auditor')" />
+			<acme:menu-suboption code="master.menu.user-account.auditor" action="/authenticated/auditor/update"
+				access="hasRole('Auditor')" />
 			<acme:menu-suboption code="master.menu.user-account.become-employer" action="/authenticated/employer/create"
 				access="!hasRole('Employer')" />
 			<acme:menu-suboption code="master.menu.user-account.employer" action="/authenticated/employer/update"

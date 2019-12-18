@@ -2,6 +2,11 @@ authenticated.message-thread.form.label.title = Title
 authenticated.message-thread.form.label.moment = Moment
 authenticated.message-thread.form.label.creator = Created by
 
+authenticated.message-thread.form.error.spam = This has been considered spam by the system
+
+authenticated.message-thread.form.button.add-participant = Add participant
+authenticated.message-thread.form.button.list-participants = List participants
+authenticated.message-thread.form.button.create = Create
 authenticated.message-thread.form.button.list-messages = List messages
 authenticated.message-thread.form.button.add-message = Post new message
 authenticated.message-thread.form.button.return = Return

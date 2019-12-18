@@ -27,6 +27,10 @@
        drop 
        foreign key FK_clqcq9lyspxdxcp6o4f3vkelj;
 
+    alter table `auditor_request` 
+       drop 
+       foreign key `FKe7pjjdlehi2gl4wqda0druv4g`;
+
     alter table `authenticated` 
        drop 
        foreign key FK_h52w0f3wjoi68b63wv9vwon57;
@@ -63,17 +67,17 @@
        drop 
        foreign key `FK3fa4h4tfet2kocvatib2ovhsa`;
 
-    alter table `message_thread_authenticated` 
-       drop 
-       foreign key `FK2buymmljcjk3s7ul9ex3bux46`;
-
-    alter table `message_thread_authenticated` 
-       drop 
-       foreign key `FKjb0tx79q4dpibs3mnkp6wfqvf`;
-
     alter table `non_commercial_banner` 
        drop 
        foreign key FK_2l8gpcwh19e7jj513or4r9dvb;
+
+    alter table `participant` 
+       drop 
+       foreign key `FK80gruu22vbyiojed5sawtqc6a`;
+
+    alter table `participant` 
+       drop 
+       foreign key `FK162v6eiogk4jr8ykjoe80255x`;
 
     alter table `provider` 
        drop 
@@ -102,6 +106,8 @@
     drop table if exists `audit`;
 
     drop table if exists `auditor`;
+
+    drop table if exists `auditor_request`;
 
     drop table if exists `authenticated`;
 
@@ -135,11 +141,11 @@
 
     drop table if exists `message_thread`;
 
-    drop table if exists `message_thread_authenticated`;
-
     drop table if exists `non_commercial_banner`;
 
     drop table if exists `offer`;
+
+    drop table if exists `participant`;
 
     drop table if exists `provider`;
 

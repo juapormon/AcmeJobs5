@@ -21,8 +21,8 @@ administrator.dashboard.form.label.avgApplicationsPerEmployer = Número medio de
 administrator.dashboard.form.label.avgApplicationsPerWorker = Número medio de solicitudes por trabajador
 
 administrator.dashboard.form.title.totalSectors = Compañías e inversores totales por sector
-administrator.dashboard.form.label.investor = Inversores
-administrator.dashboard.form.label.companies = Compañías
+administrator.dashboard.form.label.investor = INVERSORES
+administrator.dashboard.form.label.companies = COMPAÑÍAS
 
 administrator.dashboard.form.title.applications-status = Proporción de inscripciones agrupadas por estado
 administrator.dashboard.form.label.application-pending = PENDIENTE
