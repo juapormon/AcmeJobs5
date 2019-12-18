@@ -41,7 +41,7 @@ public class SponsorCommercialBannerCreateService implements AbstractCreateServi
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "picture", "slogan", "targetURL", "commercialBanner.creditCardNumber", "commercialBanner.creditCardCvv", "commercialBanner.creditCardMonth", "commercialBanner.creditCardYear");
+		request.unbind(entity, model, "picture", "slogan", "targetURL", "sponsor.creditCard");
 	}
 
 	@Override
@@ -62,15 +62,15 @@ public class SponsorCommercialBannerCreateService implements AbstractCreateServi
 		assert errors != null;
 
 		//			CustomisationParameters cp = this.repository.findCustomisationParameters();
-		//	
+		//
 		//			if (!errors.hasErrors("slogan")) {
-		//	
+		//
 		//				//
 		//				//
 		//				//    HOLI
 		//				//
 		//				//
-		//	
+		//
 		//			}
 	}
 

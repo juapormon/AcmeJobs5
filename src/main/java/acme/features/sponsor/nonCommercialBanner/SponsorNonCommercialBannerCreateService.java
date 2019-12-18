@@ -41,7 +41,7 @@ public class SponsorNonCommercialBannerCreateService implements AbstractCreateSe
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "picture", "slogan", "targetURL", "nonCommercialBanner.jingle");
+		request.unbind(entity, model, "picture", "slogan", "targetURL");
 	}
 
 	@Override

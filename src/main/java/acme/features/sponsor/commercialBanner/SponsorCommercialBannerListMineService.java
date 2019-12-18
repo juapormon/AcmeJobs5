@@ -33,8 +33,7 @@ public class SponsorCommercialBannerListMineService implements AbstractListServi
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "picture", "slogan", "targetURL", "commercialBanner.creditCardNumber", "commercialBanner.creditCardCvv", "commercialBanner.creditCardMonth", "commercialBanner.creditCardYear");
-
+		request.unbind(entity, model, "picture", "slogan", "targetURL", "sponsor.creditCard");
 	}
 
 	@Override

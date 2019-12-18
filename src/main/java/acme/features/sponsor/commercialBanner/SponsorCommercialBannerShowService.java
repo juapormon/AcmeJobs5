@@ -32,7 +32,8 @@ public class SponsorCommercialBannerShowService implements AbstractShowService<S
 		cb = this.repository.findOneCommercialBannerById(cbId);
 		sponsor = cb.getSponsor();
 		principal = request.getPrincipal();
-		result = cb.isTransient() || !cb.isTransient() && sponsor.getUserAccount().getId() == principal.getAccountId();
+		//	result = cb.isTransient() || !cb.isTransient() && sponsor.getUserAccount().getId() == principal.getAccountId();
+		result = sponsor.getUserAccount().getId() == principal.getAccountId();
 
 		return result;
 	}
@@ -43,8 +44,7 @@ public class SponsorCommercialBannerShowService implements AbstractShowService<S
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "picture", "slogan", "targetURL", "commercialBanner.creditCardNumber", "commercialBanner.creditCardCvv", "commercialBanner.creditCardMonth", "commercialBanner.creditCardYear");
-
+		request.unbind(entity, model, "picture", "slogan", "targetURL", "sponsor.creditCard");
 	}
 
 	@Override
