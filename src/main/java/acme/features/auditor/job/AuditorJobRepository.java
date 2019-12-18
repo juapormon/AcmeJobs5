@@ -15,9 +15,15 @@ public interface AuditorJobRepository extends AbstractRepository {
 	@Query("select j from Job j where j.id = ?1")
 	Job findOneJobById(int id);
 
+	@Query("select j.status from Job j where j.id = ?1")
+	int findIfJobIsPublished(int id);
+
 	@Query("select a.job from Audit a where a.auditor.id = ?1 and a.job.status = acme.entities.jobs.JobStatus.PUBLISHED and a.job.deadline > current_date()")
 	Collection<Job> findManyByAuditorId(int auditorId);
 
 	@Query("select j from Job j where j.id not in (select a.job.id from Audit a where a.auditor.id = ?1) and j.status = acme.entities.jobs.JobStatus.PUBLISHED and j.deadline > current_date()")
 	Collection<Job> findOthersByAuditorId(int auditorId);
+
+	@Query("select a.id from Audit a where a.auditor.id = ?1 and a.job.id = ?2")
+	Integer findAuditIdByAuditorIdJobId(int auditorId, int jobId);
 }

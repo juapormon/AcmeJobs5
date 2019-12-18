@@ -126,6 +126,7 @@ master.menu.sponsor.non-commercial-banner.list-mine = Listar mis banners no come
 # master.menu.auditor ##########################################################
 
 master.menu.auditor = Auditor
+master.menu.auditor.audit.list = Listar mis auditorías
 master.menu.auditor.job.list-mine = Listar mis trabajos auditados
 master.menu.auditor.job.list-not-mine = Listar mis trabajos no auditados
 

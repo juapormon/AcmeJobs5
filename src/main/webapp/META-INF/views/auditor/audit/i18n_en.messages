@@ -1,0 +1,17 @@
+auditor.audit.list.label.status = Status
+auditor.audit.list.label.job.reference = Job reference
+auditor.audit.list.label.creationMoment = Creation moment
+
+auditor.audit.form.label.title = Title
+auditor.audit.form.label.creationMoment = Creation Moment
+auditor.audit.form.label.body = Body
+auditor.audit.form.label.status = Status
+auditor.audit.form.label.status.draft = Draft
+auditor.audit.form.label.status.published = Published
+
+auditor.audit.form.button.show-job = Show job
+auditor.audit.form.button.create = Create
+auditor.audit.form.button.update = Update
+auditor.audit.form.button.delete = Delete
+
+auditor.audit.form.button.return = Return

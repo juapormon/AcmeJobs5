@@ -11,6 +11,14 @@
 	<acme:form-url code="auditor.job.form.label.moreInfo" path="moreInfo" />
 	<acme:form-textarea code="auditor.job.form.label.description" path="description" />
 
+	<jstl:choose>
+		<jstl:when test="${auditId != null}">
+			<acme:form-submit code="auditor.job.form.button.show-audit" action="/auditor/audit/show?id=${auditId}" method="get" />
+		</jstl:when>
+		<jstl:otherwise>
+			<acme:form-submit code="auditor.job.form.button.create-audit" action="/auditor/audit/create?jobId=${id}" method="get" />
+		</jstl:otherwise>
+	</jstl:choose>
 	<acme:form-submit code="auditor.job.form.button.list-duties" action="/authenticated/duty/list?id=${id}" method="get" />
 	<acme:form-submit code="auditor.job.form.button.list-audits" action="/authenticated/audit/list?id=${id}" method="get" />
 	<acme:form-return code="auditor.job.form.button.return" />

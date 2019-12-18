@@ -4,7 +4,9 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-        <property name="java-output-path" value="/acme-jobs/target/classes"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp/WEB-INF"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp/META-INF"/>
+        <property name="java-output-path" value="/Acme-Jobs/target/classes"/>
         <property name="context-root" value="Acme-Jobs"/>
     </wb-module>
 </project-modules>

@@ -36,7 +36,6 @@ public class Audit extends DomainEntity {
 	@NotNull
 	private AuditStatus			status;
 
-	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
 	private Date				creationMoment;

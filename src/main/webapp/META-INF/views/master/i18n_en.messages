@@ -126,6 +126,7 @@ master.menu.sponsor.non-commercial-banner.list-mine = List my non-commercial ban
 # master.menu.auditor ##########################################################
 
 master.menu.auditor = Auditor
+master.menu.auditor.audit.list = List my audits
 master.menu.auditor.job.list-mine = List my audited jobs
 master.menu.auditor.job.list-not-mine = List my non-audited jobs
 
