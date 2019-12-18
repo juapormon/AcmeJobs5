@@ -1,5 +1,5 @@
 
-package acme.features.auditor.auditRecord;
+package acme.features.auditor.audit;
 
 import java.util.Date;
 
@@ -18,10 +18,10 @@ import acme.framework.services.AbstractCreateService;
 
 @Service
 
-public class AuditorAuditRecordCreateService implements AbstractCreateService<Auditor, Audit> {
+public class AuditorAuditCreateService implements AbstractCreateService<Auditor, Audit> {
 
 	@Autowired
-	AuditorAuditRecordRepository repository;
+	AuditorAuditRepository repository;
 
 
 	@Override

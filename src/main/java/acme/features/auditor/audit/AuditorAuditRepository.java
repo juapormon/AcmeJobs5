@@ -1,5 +1,5 @@
 
-package acme.features.auditor.auditRecord;
+package acme.features.auditor.audit;
 
 import java.util.Collection;
 
@@ -12,7 +12,7 @@ import acme.entities.roles.Auditor;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface AuditorAuditRecordRepository extends AbstractRepository {
+public interface AuditorAuditRepository extends AbstractRepository {
 
 	@Query("select a from Audit a where a.id = ?1")
 	Audit findOneAuditById(int id);
