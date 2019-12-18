@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.banner.CommercialBanner;
+import acme.entities.customisationParameters.CustomisationParameters;
 import acme.entities.roles.Sponsor;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -12,7 +13,6 @@ import acme.framework.components.Request;
 import acme.framework.services.AbstractCreateService;
 
 @Service
-
 public class SponsorCommercialBannerCreateService implements AbstractCreateService<Sponsor, CommercialBanner> {
 
 	@Autowired
@@ -41,7 +41,7 @@ public class SponsorCommercialBannerCreateService implements AbstractCreateServi
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "picture", "slogan", "targetURL", "sponsor.creditCard");
+		request.unbind(entity, model, "picture", "slogan", "targetURL", "creditCardNumber", "creditCardCvv", "creditCardMonth", "creditCardYear");
 	}
 
 	@Override
@@ -50,7 +50,16 @@ public class SponsorCommercialBannerCreateService implements AbstractCreateServi
 		CommercialBanner result;
 
 		result = new CommercialBanner();
-		result.setSponsor(this.repository.getSponsorById(request.getPrincipal().getActiveRoleId()));
+
+		Sponsor sponsor = this.repository.findOneSponsorById(request.getPrincipal().getActiveRoleId());
+		result.setSponsor(sponsor);
+
+		if (sponsor.getCreditCard() != null) {
+			result.setCreditCardNumber(sponsor.getCreditCard().getCreditCardNumber());
+			result.setCreditCardCvv(sponsor.getCreditCard().getCreditCardCvv());
+			result.setCreditCardMonth(sponsor.getCreditCard().getCreditCardMonth());
+			result.setCreditCardYear(sponsor.getCreditCard().getCreditCardYear());
+		}
 
 		return result;
 	}
@@ -61,17 +70,12 @@ public class SponsorCommercialBannerCreateService implements AbstractCreateServi
 		assert entity != null;
 		assert errors != null;
 
-		//			CustomisationParameters cp = this.repository.findCustomisationParameters();
-		//
-		//			if (!errors.hasErrors("slogan")) {
-		//
-		//				//
-		//				//
-		//				//    HOLI
-		//				//
-		//				//
-		//
-		//			}
+		CustomisationParameters cp = this.repository.findOneCustomisationParameters();
+
+		boolean sloganHasErrors = errors.hasErrors("slogan");
+		if (!sloganHasErrors) {
+			errors.state(request, !cp.isSpam(entity.getSlogan()), "slogan", "sponsor.commercial-banner.form.error.spam");
+		}
 	}
 
 	@Override

@@ -33,7 +33,7 @@ public class SponsorCommercialBannerListMineService implements AbstractListServi
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "picture", "slogan", "targetURL", "sponsor.creditCard");
+		request.unbind(entity, model, "slogan", "targetURL");
 	}
 
 	@Override
@@ -42,6 +42,7 @@ public class SponsorCommercialBannerListMineService implements AbstractListServi
 
 		Collection<CommercialBanner> result;
 		Principal principal;
+
 		principal = request.getPrincipal();
 		result = this.repository.findManyBySponsorId(principal.getActiveRoleId());
 

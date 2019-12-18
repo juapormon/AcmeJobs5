@@ -15,15 +15,15 @@ import acme.framework.repositories.AbstractRepository;
 public interface SponsorCommercialBannerRepository extends AbstractRepository {
 
 	@Query("select b from CommercialBanner b where b.id = ?1")
-	CommercialBanner findOneCommercialBannerById(int id);
+	CommercialBanner findOneById(int id);
 
 	@Query("select b from CommercialBanner b where b.sponsor.id = ?1")
-	Collection<CommercialBanner> findManyBySponsorId(int SponsorId);
+	Collection<CommercialBanner> findManyBySponsorId(int sponsorId);
 
 	@Query("select cp from CustomisationParameters cp")
-	CustomisationParameters findCustomisationParameters();
+	CustomisationParameters findOneCustomisationParameters();
 
 	@Query("select s from Sponsor s where s.id = ?1")
-	Sponsor getSponsorById(int activeRoleId);
+	Sponsor findOneSponsorById(int activeRoleId);
 
 }

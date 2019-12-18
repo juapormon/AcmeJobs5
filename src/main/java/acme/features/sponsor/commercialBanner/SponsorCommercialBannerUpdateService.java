@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.banner.CommercialBanner;
+import acme.entities.customisationParameters.CustomisationParameters;
 import acme.entities.roles.Sponsor;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -24,18 +25,11 @@ public class SponsorCommercialBannerUpdateService implements AbstractUpdateServi
 	public boolean authorise(final Request<CommercialBanner> request) {
 		assert request != null;
 
-		boolean result;
-		int cbId;
-		CommercialBanner cb;
-		Sponsor sponsor;
-		Principal principal;
-
-		cbId = request.getModel().getInteger("id");
-		cb = this.repository.findOneCommercialBannerById(cbId);
-		sponsor = cb.getSponsor();
-		principal = request.getPrincipal();
-		//		result = cb.isTransient() || !cb.isTransient() && sponsor.getUserAccount().getId() == principal.getAccountId();
-		result = sponsor.getUserAccount().getId() == principal.getAccountId();
+		int cbId = request.getModel().getInteger("id");
+		CommercialBanner cb = this.repository.findOneById(cbId);
+		Sponsor sponsor = cb.getSponsor();
+		Principal principal = request.getPrincipal();
+		boolean result = sponsor.getUserAccount().getId() == principal.getAccountId();
 
 		return result;
 	}
@@ -55,7 +49,7 @@ public class SponsorCommercialBannerUpdateService implements AbstractUpdateServi
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "picture", "slogan", "targetURL", "sponsor.creditCard");
+		request.unbind(entity, model, "picture", "slogan", "targetURL", "creditCardNumber", "creditCardCvv", "creditCardMonth", "creditCardYear");
 	}
 
 	@Override
@@ -64,17 +58,12 @@ public class SponsorCommercialBannerUpdateService implements AbstractUpdateServi
 		assert entity != null;
 		assert errors != null;
 
-		//			CustomisationParameters cp = this.repository.findCustomisationParameters();
-		//
-		//			if (!errors.hasErrors("slogan")) {
-		//
-		//				//
-		//				//
-		//				//    HOLI
-		//				//
-		//				//
-		//
-		//			}
+		CustomisationParameters cp = this.repository.findOneCustomisationParameters();
+
+		boolean sloganHasErrors = errors.hasErrors("slogan");
+		if (!sloganHasErrors) {
+			errors.state(request, !cp.isSpam(entity.getSlogan()), "slogan", "sponsor.commercial-banner.form.error.spam");
+		}
 	}
 
 	@Override
@@ -85,7 +74,7 @@ public class SponsorCommercialBannerUpdateService implements AbstractUpdateServi
 		int id;
 
 		id = request.getModel().getInteger("id");
-		result = this.repository.findOneCommercialBannerById(id);
+		result = this.repository.findOneById(id);
 
 		return result;
 	}

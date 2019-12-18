@@ -116,8 +116,10 @@ master.menu.worker.job.list = List jobs
 # master.menu.sponsor #########################################################
 
 master.menu.sponsor = Sponsor
-master.menu.sponsor.comercial-banner.list-mine = List my Commercial Banners
-master.menu.sponsor.non-comercial-banner.list-mine = List my Non Commercial Banners
+master.menu.sponsor.commercial-banner.create = Create a commercial banner
+master.menu.sponsor.commercial-banner.list-mine = List my commercial banners
+master.menu.sponsor.non-commercial-banner.create = Create a non-commercial banner
+master.menu.sponsor.non-commercial-banner.list-mine = List my non-commercial banners
 
 # master.menu.auditor ##########################################################
 

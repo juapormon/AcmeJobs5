@@ -32,7 +32,7 @@ public class SponsorNonCommercialBannerListMineService implements AbstractListSe
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "picture", "slogan", "targetURL");
+		request.unbind(entity, model, "slogan", "targetURL");
 
 	}
 

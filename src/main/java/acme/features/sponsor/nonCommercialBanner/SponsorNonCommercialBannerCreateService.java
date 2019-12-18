@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.banner.NonCommercialBanner;
+import acme.entities.customisationParameters.CustomisationParameters;
 import acme.entities.roles.Sponsor;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -41,16 +42,15 @@ public class SponsorNonCommercialBannerCreateService implements AbstractCreateSe
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "picture", "slogan", "targetURL");
+		request.unbind(entity, model, "picture", "slogan", "targetURL", "jingle");
 	}
 
 	@Override
 	public NonCommercialBanner instantiate(final Request<NonCommercialBanner> request) {
 		assert request != null;
-		NonCommercialBanner result;
 
-		result = new NonCommercialBanner();
-		result.setSponsor(this.repository.getSponsorById(request.getPrincipal().getActiveRoleId()));
+		NonCommercialBanner result = new NonCommercialBanner();
+		result.setSponsor(this.repository.findOneSponsorById(request.getPrincipal().getActiveRoleId()));
 
 		return result;
 	}
@@ -61,17 +61,12 @@ public class SponsorNonCommercialBannerCreateService implements AbstractCreateSe
 		assert entity != null;
 		assert errors != null;
 
-		//			CustomisationParameters cp = this.repository.findCustomisationParameters();
-		//
-		//			if (!errors.hasErrors("slogan")) {
-		//
-		//				//
-		//				//
-		//				//    HOLI
-		//				//
-		//				//
-		//
-		//			}
+		CustomisationParameters cp = this.repository.findOneCustomisationParameters();
+
+		boolean sloganHasErrors = errors.hasErrors("slogan");
+		if (!sloganHasErrors) {
+			errors.state(request, !cp.isSpam(entity.getSlogan()), "slogan", "sponsor.non-commercial-banner.form.error.spam");
+		}
 	}
 
 	@Override

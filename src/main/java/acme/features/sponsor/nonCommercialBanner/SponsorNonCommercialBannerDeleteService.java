@@ -24,17 +24,11 @@ public class SponsorNonCommercialBannerDeleteService implements AbstractDeleteSe
 	public boolean authorise(final Request<NonCommercialBanner> request) {
 		assert request != null;
 
-		boolean result;
-		int ncbId;
-		NonCommercialBanner ncb;
-		Sponsor sponsor;
-		Principal principal;
-
-		ncbId = request.getModel().getInteger("id");
-		ncb = this.repository.findOneNonCommercialBannerById(ncbId);
-		sponsor = ncb.getSponsor();
-		principal = request.getPrincipal();
-		result = ncb.isTransient() || !ncb.isTransient() && sponsor.getUserAccount().getId() == principal.getAccountId();
+		int ncbId = request.getModel().getInteger("id");
+		NonCommercialBanner ncb = this.repository.findOneById(ncbId);
+		Sponsor sponsor = ncb.getSponsor();
+		Principal principal = request.getPrincipal();
+		boolean result = sponsor.getUserAccount().getId() == principal.getAccountId();
 
 		return result;
 	}
@@ -54,7 +48,7 @@ public class SponsorNonCommercialBannerDeleteService implements AbstractDeleteSe
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "picture", "slogan", "targetURL");
+		request.unbind(entity, model, "picture", "slogan", "targetURL", "jingle");
 	}
 
 	@Override
@@ -65,7 +59,7 @@ public class SponsorNonCommercialBannerDeleteService implements AbstractDeleteSe
 		int id;
 
 		id = request.getModel().getInteger("id");
-		result = this.repository.findOneNonCommercialBannerById(id);
+		result = this.repository.findOneById(id);
 
 		return result;
 	}

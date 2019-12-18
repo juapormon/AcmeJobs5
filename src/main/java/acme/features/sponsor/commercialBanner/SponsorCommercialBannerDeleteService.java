@@ -24,18 +24,11 @@ public class SponsorCommercialBannerDeleteService implements AbstractDeleteServi
 	public boolean authorise(final Request<CommercialBanner> request) {
 		assert request != null;
 
-		boolean result;
-		int cbId;
-		CommercialBanner cb;
-		Sponsor sponsor;
-		Principal principal;
-
-		cbId = request.getModel().getInteger("id");
-		cb = this.repository.findOneCommercialBannerById(cbId);
-		sponsor = cb.getSponsor();
-		principal = request.getPrincipal();
-		//	result = cb.isTransient() || !cb.isTransient() && sponsor.getUserAccount().getId() == principal.getAccountId();
-		result = sponsor.getUserAccount().getId() == principal.getAccountId();
+		int cbId = request.getModel().getInteger("id");
+		CommercialBanner cb = this.repository.findOneById(cbId);
+		Sponsor sponsor = cb.getSponsor();
+		Principal principal = request.getPrincipal();
+		boolean result = sponsor.getUserAccount().getId() == principal.getAccountId();
 
 		return result;
 	}
@@ -55,7 +48,7 @@ public class SponsorCommercialBannerDeleteService implements AbstractDeleteServi
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "picture", "slogan", "targetURL", "sponsor.creditCard");
+		request.unbind(entity, model, "picture", "slogan", "targetURL", "creditCardNumber", "creditCardCvv", "creditCardMonth", "creditCardYear");
 	}
 
 	@Override
@@ -66,7 +59,7 @@ public class SponsorCommercialBannerDeleteService implements AbstractDeleteServi
 		int id;
 
 		id = request.getModel().getInteger("id");
-		result = this.repository.findOneCommercialBannerById(id);
+		result = this.repository.findOneById(id);
 
 		return result;
 	}

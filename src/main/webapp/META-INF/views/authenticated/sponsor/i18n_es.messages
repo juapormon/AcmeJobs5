@@ -3,6 +3,8 @@ authenticated.sponsor.form.title.update = Actualizar datos de patrocinador
 
 authenticated.sponsor.form.label.organisationName = Nombre de la organización:
 
+authenticated.sponsor.form.button.add-credit-card = Añadir tarjeta de crédito
+authenticated.sponsor.form.button.edit-credit-card = Editar tarjeta de crédito
 authenticated.sponsor.form.button.create = Registrar
 authenticated.sponsor.form.button.update = Actualizar
 authenticated.sponsor.form.button.return = Volver
