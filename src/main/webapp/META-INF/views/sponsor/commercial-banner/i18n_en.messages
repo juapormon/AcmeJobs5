@@ -1,11 +1,17 @@
-sponsor.commercial-banner.form.label.picture = Picture
-sponsor.commercial-banner.form.label.slogan = Slogan
-sponsor.commercial-banner.form.label.targetURL = URL
-sponsor.commercial-banner.form.label.creditCardNumber = Credit Card
-sponsor.commercial-banner.form.label.creditCardCvv = CVV
-sponsor.commercial-banner.form.label.creditCardMonth = Expiration Month
-sponsor.commercial-banner.form.label.creditCardYear = Expiration Year
+sponsor.commercial-banner.form.label.picture= Picture:
+sponsor.commercial-banner.form.label.slogan= Slogan:
+sponsor.commercial-banner.form.label.targetURL= Target URL: 
+sponsor.commercial-banner.form.label.creditCardNumber= Credit card:
+sponsor.commercial-banner.form.label.creditCardCvv= CVV:
+sponsor.commercial-banner.form.label.creditCardMonth=Expiration month:
+sponsor.commercial-banner.form.label.creditCardYear=Expiration year:
+
+sponsor.commercial-banner.form.error.spam = This has been considered spam by the system
+
+sponsor.commercial-banner.form.button.create = Create
+sponsor.commercial-banner.form.button.update = Update
+sponsor.commercial-banner.form.button.delete = Delete
 sponsor.commercial-banner.form.button.return = Return
 
-sponsor.commercial-banner.label.slogan = Slogan
-sponsor.commercial-banner.label.picture = Picture URL
+sponsor.commercial-banner.list.label.slogan = Slogan
+sponsor.commercial-banner.list.label.targetURL = Target URL

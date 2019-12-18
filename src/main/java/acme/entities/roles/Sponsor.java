@@ -24,5 +24,4 @@ public class Sponsor extends UserRole {
 	@Valid
 	@OneToOne(optional = true)
 	private CreditCard			creditCard;
-
 }

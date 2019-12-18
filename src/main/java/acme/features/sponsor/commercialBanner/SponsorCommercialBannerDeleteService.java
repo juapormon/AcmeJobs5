@@ -6,13 +6,15 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.banner.CommercialBanner;
 import acme.entities.roles.Sponsor;
+import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Principal;
-import acme.framework.services.AbstractShowService;
+import acme.framework.services.AbstractDeleteService;
 
 @Service
-public class SponsorCommercialBannerShowService implements AbstractShowService<Sponsor, CommercialBanner> {
+
+public class SponsorCommercialBannerDeleteService implements AbstractDeleteService<Sponsor, CommercialBanner> {
 
 	@Autowired
 	SponsorCommercialBannerRepository repository;
@@ -29,6 +31,15 @@ public class SponsorCommercialBannerShowService implements AbstractShowService<S
 		boolean result = sponsor.getUserAccount().getId() == principal.getAccountId();
 
 		return result;
+	}
+
+	@Override
+	public void bind(final Request<CommercialBanner> request, final CommercialBanner entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+
+		request.bind(entity, errors);
 	}
 
 	@Override
@@ -51,6 +62,22 @@ public class SponsorCommercialBannerShowService implements AbstractShowService<S
 		result = this.repository.findOneById(id);
 
 		return result;
+	}
+
+	@Override
+	public void validate(final Request<CommercialBanner> request, final CommercialBanner entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+
+	}
+
+	@Override
+	public void delete(final Request<CommercialBanner> request, final CommercialBanner entity) {
+		assert request != null;
+		assert entity != null;
+
+		this.repository.delete(entity);
 	}
 
 }
