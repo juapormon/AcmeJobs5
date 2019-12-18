@@ -13,7 +13,6 @@ import acme.framework.entities.Principal;
 import acme.framework.services.AbstractDeleteService;
 
 @Service
-
 public class EmployerJobDeleteService implements AbstractDeleteService<Employer, Job> {
 
 	@Autowired
@@ -59,12 +58,15 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 
 	@Override
 	public Job findOne(final Request<Job> request) {
+		assert request != null;
+
 		Job result;
 		int id;
 
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneJobById(id);
 
+		request.unbind(result, request.getModel(), "reference", "status", "title", "deadline", "salary", "moreInfo", "description"); // Para que funcione el unbind que no es llamado
 		return result;
 	}
 
@@ -75,7 +77,7 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		assert errors != null;
 
 		boolean hasApplications = this.repository.findTotalApplicationsByJobId(entity.getId()) > 0;
-		errors.state(request, !hasApplications, "descriptor.description", "employer.job.form.error.cant-delete");
+		errors.state(request, !hasApplications, "description", "employer.job.form.error.cant-delete");
 	}
 
 	@Override
@@ -84,5 +86,7 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		assert entity != null;
 
 		this.repository.delete(entity);
+		this.repository.deleteAll(this.repository.findManyDutiesByJobId(entity.getId()));
+		this.repository.deleteAll(this.repository.findManyAuditsByJobId(entity.getId()));
 	}
 }

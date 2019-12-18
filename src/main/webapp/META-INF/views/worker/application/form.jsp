@@ -14,6 +14,9 @@
 					selected="${(requestScope['status'] == status) ? 'true' : 'false'}" />
 			</jstl:forEach>
 		</acme:form-select>
+		<jstl:if test="${status == 'REJECTED'}">
+			<acme:form-textarea code="worker.application.form.label.rejectionJustification" path="rejectionJustification" />
+		</jstl:if>
 	</jstl:if>
 	<acme:form-textbox code="worker.application.form.label.statement" path="statement" />
 	<acme:form-textarea code="worker.application.form.label.skills" path="skills" />

@@ -26,7 +26,7 @@ public class AuthenticatedMessageListService implements AbstractListService<Auth
 
 		int messageThreadId = request.getModel().getInteger("id");
 		Principal principal = request.getPrincipal();
-		boolean result = this.repository.findCountOfMessages(messageThreadId, principal.getActiveRoleId()) > 0;
+		boolean result = this.repository.findExistsMessageThreadParticipant(messageThreadId, principal.getActiveRoleId());
 
 		return result;
 	}

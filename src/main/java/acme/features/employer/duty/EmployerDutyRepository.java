@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.customisationParameters.CustomisationParameters;
 import acme.entities.jobs.Duty;
 import acme.entities.jobs.Job;
 import acme.framework.repositories.AbstractRepository;
@@ -24,4 +25,7 @@ public interface EmployerDutyRepository extends AbstractRepository {
 
 	@Query("select d from Duty d where d.id = ?1")
 	Duty findOneDutyById(int id);
+
+	@Query("select c from CustomisationParameters c")
+	CustomisationParameters findOneCustomisationParameters();
 }

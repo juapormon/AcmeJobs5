@@ -8,12 +8,14 @@ employer.job.form.label.salary = Salario
 employer.job.form.label.moreInfo = Más información
 employer.job.form.label.description = Descripción
 
+employer.job.form.error.spam = Esto ha sido considerado spam por el sistema
 employer.job.form.error.incorrect-weekly-workload = Las tareas no suman el 100% de la carga de trabajo semanal
 employer.job.form.error.is-published = No puedes modificar un trabajo ya publicado
 employer.job.form.error.rejected-currency = Solo se aceptan cantidades en euros
 employer.job.form.error.must-future = La fecha límite debe estar en el futuro
 employer.job.form.error.reference-unique = La referencia debe ser única
 employer.job.form.error.cant-delete = Este trabajo tiene solicitudes; no puedes borrar un trabajo con solicitudes
+employer.job.form.error.empty-description = Un trabajo publicado debe tener una descripción
 
 employer.job.form.button.update = Actualizar
 employer.job.form.button.delete = Borrar
@@ -21,6 +23,7 @@ employer.job.form.button.create = Crear
 employer.job.form.button.add-duty = Añadir tarea
 employer.job.form.button.list-audits = Listar auditorías
 employer.job.form.button.list-duties = Listar tareas
+employer.job.form.button.list-applications = Listar solicitudes
 employer.job.form.button.return = Volver
 
 employer.job.list.label.reference = Referencia

@@ -12,8 +12,6 @@ public class Dashboard implements Serializable {
 
 	private static final long	serialVersionUID	= 1L;
 
-	// Attributes
-
 	Integer						totalNumberOfAnnouncements;
 	Integer						totalNumberOfCompanyRecords;
 	Integer						totalNumberOfInvestorRecords;
@@ -31,4 +29,19 @@ public class Dashboard implements Serializable {
 	Double						avgJobsPerEmployer;
 	Double						avgApplicationsPerEmployer;
 	Double						avgApplicationsPerWorker;
+
+	Object[]					investorsCommonSectors;
+	Object[]					companiesCommonSectors;
+	Object[]					companySectors;
+	Object[]					investorSectors;
+
+	Double						ratioOfPublishedJobs;
+	Double						ratioOfDraftJobs;
+	Double						ratioOfPendingApplications;
+	Double						ratioOfAcceptedApplications;
+	Double						ratioOfRejectedApplications;
+
+	Object[]					pendingApplicationsPerDay;
+	Object[]					acceptedApplicationsPerDay;
+	Object[]					rejectedApplicationsPerDay;
 }

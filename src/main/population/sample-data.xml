@@ -468,8 +468,9 @@
 
 	<bean name="application1" class="acme.entities.jobs.Application">
 		<property name="reference" value="EMP1-JOB1:WOR1" />
-		<property name="moment" value="2018/12/11 23:59" />
+		<property name="moment" value="2019/12/11 23:59" />
 		<property name="status" value="PENDING" />
+		<property name="rejectionJustification" value="" />
 		<property name="statement" value="Example" />
 		<property name="skills" value="A lot" />
 		<property name="qualifications" value="A lot" />
@@ -479,8 +480,9 @@
 
 	<bean name="application2" class="acme.entities.jobs.Application">
 		<property name="reference" value="EMP2-JOB4:WOR1" />
-		<property name="moment" value="2018/12/11 23:59" />
+		<property name="moment" value="2019/12/11 23:59" />
 		<property name="status" value="REJECTED" />
+		<property name="rejectionJustification" value="Example justification" />
 		<property name="statement" value="Example" />
 		<property name="skills" value="A lot" />
 		<property name="qualifications" value="A lot" />
@@ -490,8 +492,9 @@
 
 	<bean name="application3" class="acme.entities.jobs.Application">
 		<property name="reference" value="EMP1-JOB5:WOR1" />
-		<property name="moment" value="2018/12/11 23:59" />
+		<property name="moment" value="2019/12/12 23:59" />
 		<property name="status" value="REJECTED" />
+		<property name="rejectionJustification" value="Example justification" />
 		<property name="statement" value="Example" />
 		<property name="skills" value="A lot" />
 		<property name="qualifications" value="A lot" />
@@ -501,8 +504,9 @@
 
 	<bean name="application4" class="acme.entities.jobs.Application">
 		<property name="reference" value="EMP1-JOB5:WOR2" />
-		<property name="moment" value="2018/12/11 23:59" />
+		<property name="moment" value="2019/12/13 23:59" />
 		<property name="status" value="REJECTED" />
+		<property name="rejectionJustification" value="Example justification" />
 		<property name="statement" value="Example" />
 		<property name="skills" value="A lot" />
 		<property name="qualifications" value="A lot" />
@@ -512,8 +516,9 @@
 
 	<bean name="application5" class="acme.entities.jobs.Application">
 		<property name="reference" value="EMP2-JOB4:WOR2" />
-		<property name="moment" value="2018/12/11 23:59" />
+		<property name="moment" value="2019/12/13 23:59" />
 		<property name="status" value="ACCEPTED" />
+		<property name="rejectionJustification" value="" />
 		<property name="statement" value="Example" />
 		<property name="skills" value="A lot" />
 		<property name="qualifications" value="A lot" />
@@ -605,12 +610,16 @@
 		<property name="title" value="Thread 1 de ejemplo" />
 		<property name="moment" value="2019/10/27 23:59" />
 		<property name="creator" ref="worker1Authenticated" />
-		<property name="participants">
-			<list>
-				<ref bean="worker1Authenticated" />
-				<ref bean="employer2Authenticated" />
-			</list>
-		</property>
+	</bean>
+
+	<bean name="messageThread1participant1" class="acme.entities.message.Participant">
+		<property name="messageThread" ref="messageThread1" />
+		<property name="authenticated" ref="worker1Authenticated" />
+	</bean>
+
+	<bean name="messageThread1participant2" class="acme.entities.message.Participant">
+		<property name="messageThread" ref="messageThread1" />
+		<property name="authenticated" ref="employer2Authenticated" />
 	</bean>
 
 	<bean name="messageThread1message1" class="acme.entities.message.Message">
@@ -650,12 +659,16 @@
 		<property name="title" value="Thread 2 de ejemplo" />
 		<property name="moment" value="2018/10/27 23:59" />
 		<property name="creator" ref="auditor1Authenticated" />
-		<property name="participants">
-			<list>
-				<ref bean="auditor1Authenticated" />
-				<ref bean="worker1Authenticated" />
-			</list>
-		</property>
+	</bean>
+
+	<bean name="messageThread2participant1" class="acme.entities.message.Participant">
+		<property name="messageThread" ref="messageThread2" />
+		<property name="authenticated" ref="auditor1Authenticated" />
+	</bean>
+
+	<bean name="messageThread2participant2" class="acme.entities.message.Participant">
+		<property name="messageThread" ref="messageThread2" />
+		<property name="authenticated" ref="worker1Authenticated" />
 	</bean>
 
 	<bean name="messageThread2message1" class="acme.entities.message.Message">

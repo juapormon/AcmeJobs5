@@ -61,9 +61,7 @@
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 
-			<acme:menu-suboption code="master.menu.administrator.dashboard" action="/administrator/dashboard/listing" />
-			<acme:menu-suboption code="master.menu.administrator.chart" action="/administrator/chart/chart" />
-			<acme:menu-suboption code="master.menu.administrator.jobs-chart" action="/administrator/jobs-chart/chart" />
+			<acme:menu-suboption code="master.menu.administrator.dashboard" action="/administrator/dashboard/show" />
 
 			<acme:menu-separator />
 
@@ -101,6 +99,7 @@
 
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.authenticated.list-jobs" action="/authenticated/job/list" />
+			<acme:menu-suboption code="master.menu.authenticated.create-message-thread" action="/authenticated/message-thread/create" />
 			<acme:menu-suboption code="master.menu.authenticated.list-my-message-threads" action="/authenticated/message-thread/list-mine" />
 		</acme:menu-option>
 
@@ -117,7 +116,7 @@
 		<acme:menu-option code="master.menu.employer" access="hasRole('Employer')">
 			<acme:menu-suboption code="master.menu.employer.job.create" action="/employer/job/create" />
 			<acme:menu-suboption code="master.menu.employer.job.list-mine" action="/employer/job/list-mine" />
-			<acme:menu-suboption code="master.menu.employer.application.list-mine" action="/employer/application/list-mine" />
+			<acme:menu-suboption code="master.menu.employer.application.list" action="/employer/application/list" />
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.worker" access="hasRole('Worker')">
@@ -171,6 +170,10 @@
 				access="!hasRole('Consumer')" />
 			<acme:menu-suboption code="master.menu.user-account.consumer" action="/authenticated/consumer/update"
 				access="hasRole('Consumer')" />
+			<acme:menu-suboption code="master.menu.user-account.become-sponsor" action="/authenticated/sponsor/create" 
+				access="!hasRole('Sponsor')"/>
+			<acme:menu-suboption code="master.menu.user-account.sponsor" action="/authenticated/sponsor/update" 
+				access="hasRole('Sponsor')"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.sign-out" action="/master/sign-out" access="isAuthenticated()" />

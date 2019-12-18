@@ -4,6 +4,7 @@ package acme.features.employer.duty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.customisationParameters.CustomisationParameters;
 import acme.entities.jobs.Duty;
 import acme.entities.jobs.Job;
 import acme.entities.jobs.JobStatus;
@@ -63,6 +64,17 @@ public class EmployerDutyUpdateService implements AbstractUpdateService<Employer
 		assert entity != null;
 		assert errors != null;
 
+		CustomisationParameters cp = this.repository.findOneCustomisationParameters();
+
+		boolean titleHasErrors = errors.hasErrors("title");
+		if (!titleHasErrors) {
+			errors.state(request, !cp.isSpam(entity.getTitle()), "title", "employer.duty.form.error.spam");
+		}
+
+		boolean descriptionHasErrors = errors.hasErrors("description");
+		if (!descriptionHasErrors) {
+			errors.state(request, !cp.isSpam(entity.getDescription()), "description", "employer.duty.form.error.spam");
+		}
 	}
 
 	@Override

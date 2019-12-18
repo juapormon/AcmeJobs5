@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.jobs.Application;
+import acme.entities.jobs.ApplicationStatus;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -34,7 +35,7 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 		application = this.repository.findOneApplicationById(applicationId);
 		employer = application.getJob().getEmployer();
 		principal = request.getPrincipal();
-		result = employer.getUserAccount().getId() == principal.getAccountId();
+		result = employer.getUserAccount().getId() == principal.getAccountId() && application.getStatus() == ApplicationStatus.PENDING;
 
 		return result;
 	}
@@ -54,7 +55,7 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "moment", "status", "statement", "skills", "qualifications", "job.reference");
+		request.unbind(entity, model, "reference", "moment", "status", "statement", "skills", "qualifications", "job.reference", "rejectionJustification");
 	}
 
 	@Override
@@ -74,6 +75,15 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		boolean statusHasErrors = errors.hasErrors("status");
+		if (!statusHasErrors) {
+			boolean rejectionJustificationHasErrors = errors.hasErrors("rejectionJustification");
+			if (!rejectionJustificationHasErrors) {
+				boolean hasRejectionJustification = entity.getStatus() != ApplicationStatus.REJECTED || entity.getStatus() == ApplicationStatus.REJECTED && entity.getRejectionJustification().length() > 0;
+				errors.state(request, hasRejectionJustification, "rejectionJustification", "employer.application.form.error.rejectionJustification");
+			}
+		}
 	}
 
 	@Override
@@ -87,8 +97,10 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneApplicationById(id);
 
-		// Cambiar solo el estado
 		result.setStatus(entity.getStatus());
+		if (result.getStatus() == ApplicationStatus.REJECTED) {
+			result.setRejectionJustification(entity.getRejectionJustification());
+		}
 
 		this.repository.save(result);
 	}

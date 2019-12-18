@@ -65,7 +65,8 @@ master.menu.anonymous.create-bulletin-4 = Publish in Sergio's bulletin
 master.menu.authenticated = Authenticated
 
 master.menu.authenticated.list-jobs = List jobs
-master.menu.authenticated.list-my-message-threads = List my threads
+master.menu.authenticated.create-message-thread = Create a message thread
+master.menu.authenticated.list-my-message-threads = List my message threads
 
 # master.menu.administrator ###################################################
 
@@ -86,10 +87,8 @@ master.menu.administrator.commercial-banner.list = List and edit commercial bann
 master.menu.administrator.commercial-banner.create = Create commercial banner
 master.menu.administrator.non-commercial-banner.list = List and edit non-commercial banners
 master.menu.administrator.non-commercial-banner.create = Create non-commercial banner
-master.menu.administrator.dashboard = Display indicators
-master.menu.administrator.chart = Companies and investors per sector
-master.menu.administrator.jobs-chart = Jobs charts
 master.menu.administrator.become-auditor = List auditors requests
+master.menu.administrator.dashboard = Dashboard
 
 # master.menu.provider ########################################################
 
@@ -108,7 +107,7 @@ master.menu.consumer.create-offer = Create offer
 master.menu.employer = Employer
 master.menu.employer.job.create = Create a job
 master.menu.employer.job.list-mine = List my jobs
-master.menu.employer.application.list-mine = List applications for my jobs
+master.menu.employer.application.list = List applications for my jobs
 
 # master.menu.worker ##########################################################
 
@@ -141,6 +140,8 @@ master.menu.user-account.worker = Worker data
 master.menu.user-account.employer = Employer data
 master.menu.user-account.become-employer = Become an employer
 master.menu.user-account.become-auditor = Become auditor
+master.menu.user-account.sponsor = Sponsor data
+master.menu.user-account.become-sponsor = Become a sponsor
 
 # master.footer ###############################################################
 

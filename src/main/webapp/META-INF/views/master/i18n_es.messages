@@ -65,7 +65,8 @@ master.menu.anonymous.create-bulletin-4 = Publicar en boletín de Sergio
 master.menu.authenticated = Autenticado
 
 master.menu.authenticated.list-jobs = Listar trabajos
-master.menu.authenticated.list-my-message-threads = Listar mis hilos
+master.menu.authenticated.create-message-thread = Crear un hilo de mensajes
+master.menu.authenticated.list-my-message-threads = Listar mis hilos de mensajes
 
 # master.menu.administrator ###################################################
 
@@ -86,10 +87,8 @@ master.menu.administrator.commercial-banner.list = Listar y editar banners comer
 master.menu.administrator.commercial-banner.create = Crear banner comercial
 master.menu.administrator.non-commercial-banner.list = Listar y editar banners no comerciales
 master.menu.administrator.non-commercial-banner.create = Crear banner no comercial
-master.menu.administrator.dashboard = Mostrar indicadores
-master.menu.administrator.chart = Compañías e inversores por sector
-master.menu.administrator.jobs-chart = Gráficos de los trabajos
 master.menu.administrator.become-auditor = Listar solicitudes auditors
+master.menu.administrator.dashboard = Panel de control
 
 # master.menu.provider ########################################################
 
@@ -108,7 +107,7 @@ master.menu.consumer.create-offer = Crear oferta
 master.menu.employer = Empleador
 master.menu.employer.job.create = Crear un trabajo
 master.menu.employer.job.list-mine = Listar mis trabajos
-master.menu.employer.application.list-mine = Listar solicitudes a mis trabajos
+master.menu.employer.application.list = Listar solicitudes a mis trabajos
 
 # master.menu.worker ##########################################################
 
@@ -142,6 +141,8 @@ master.menu.user-account.become-worker = Hazte trabajador
 master.menu.user-account.employer = Datos de empleador
 master.menu.user-account.become-employer = Hazte empleador
 master.menu.user-account.become-auditor = Hazte auditor
+master.menu.user-account.sponsor = Datos de patrocinador
+master.menu.user-account.become-sponsor = Hazte patrocinador
 
 ﻿# master.footer ###############################################################
 

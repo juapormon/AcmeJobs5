@@ -25,7 +25,6 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 
 	@Override
 	public boolean authorise(final Request<Application> request) {
-
 		assert request != null;
 
 		int jobId = request.getModel().getInteger("jobId");
@@ -60,9 +59,14 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 
 		Application result = new Application();
 		result.setStatus(ApplicationStatus.PENDING);
+
 		int jobId = request.getModel().getInteger("jobId");
 		result.setJob(this.repository.findOneJobById(jobId));
-		result.setWorker(this.repository.findOneWorkerById(request.getPrincipal().getActiveRoleId()));
+
+		Worker worker = this.repository.findOneWorkerById(request.getPrincipal().getActiveRoleId());
+		result.setWorker(worker);
+		result.setSkills(worker.getSkills());
+		result.setQualifications(worker.getQualifications());
 
 		return result;
 	}

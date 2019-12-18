@@ -35,7 +35,7 @@ public class Message extends DomainEntity {
 	@NotBlank
 	private String				body;
 
-	@Pattern(regexp = "^[^,]+([,][^,]+)*$")
+	@Pattern(regexp = "^$|(^[^,]+([,][^,]+)*$)")
 	private String				tags;
 
 	// Relationships

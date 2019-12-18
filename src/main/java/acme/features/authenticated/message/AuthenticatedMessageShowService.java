@@ -25,7 +25,7 @@ public class AuthenticatedMessageShowService implements AbstractShowService<Auth
 		int messageId = request.getModel().getInteger("id");
 		Principal principal = request.getPrincipal();
 		Message message = this.repository.findOneById(messageId);
-		boolean result = this.repository.findCountOfMessages(message.getMessageThread().getId(), principal.getActiveRoleId()) > 0;
+		boolean result = this.repository.findExistsMessageThreadParticipant(message.getMessageThread().getId(), principal.getActiveRoleId());
 
 		return result;
 	}

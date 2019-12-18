@@ -8,12 +8,14 @@ employer.job.form.label.salary = Salary
 employer.job.form.label.moreInfo = More info
 employer.job.form.label.description = Description
 
+employer.job.form.error.spam = This has been considered spam by the system
 employer.job.form.error.incorrect-weekly-workload = The duties do not sum up to 100% the weekly workload
 employer.job.form.error.is-published = You can not modify an already published job
 employer.job.form.error.rejected-currency = Only EUR are allowed
 employer.job.form.error.must-future = The deadline must be in the future
 employer.job.form.error.reference-unique = The reference must be unique
 employer.job.form.error.cant-delete = This jobs has applications; you can not delete a job with applications
+employer.job.form.error.empty-description = A published job must have a description
 
 employer.job.form.button.update = Update
 employer.job.form.button.delete = Delete
@@ -21,6 +23,7 @@ employer.job.form.button.create = Create
 employer.job.form.button.add-duty = Add duty
 employer.job.form.button.list-audits = List audits
 employer.job.form.button.list-duties = List duties
+employer.job.form.button.list-applications = List applications
 employer.job.form.button.return = Return
 
 employer.job.list.label.reference = Reference
