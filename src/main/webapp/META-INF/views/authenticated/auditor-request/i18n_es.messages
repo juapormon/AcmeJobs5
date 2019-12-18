@@ -1,0 +1,11 @@
+authenticated.auditor-request.form.label.firm = Firma
+authenticated.auditor-request.form.label.responsabilityStatement = Declaración de responsabilidad
+authenticated.auditor-request.form.label.status = Estado
+authenticated.auditor-request.form.label.status.pending = Pendiente
+authenticated.auditor-request.form.label.status.accepted = Aceptada
+authenticated.auditor-request.form.label.status.rejected = Rechazada
+
+authenticated.auditor-request.form.error.noMorePending = Aun tienes una petición pendiente
+
+authenticated.auditor-request.form.button.create = Registrarse
+authenticated.auditor-request.form.button.return = Volver

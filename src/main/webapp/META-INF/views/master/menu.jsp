@@ -65,7 +65,7 @@
 
 			<acme:menu-separator />
 
-			<acme:menu-suboption code="master.menu.administrator.become-auditor" action="/administrator/become-auditor/list" />
+			<acme:menu-suboption code="master.menu.administrator.list-auditor-requests" action="/administrator/auditor-request/list" />
 
 			<acme:menu-suboption code="master.menu.administrator.list-announcement" action="/administrator/announcement/list" />
 			<acme:menu-suboption code="master.menu.administrator.create-announcement" action="/administrator/announcement/create" />
@@ -153,8 +153,10 @@
 			<acme:menu-separator />
 
 			<acme:menu-suboption code="master.menu.user-account.general-data" action="/authenticated/user-account/update" />
-				<acme:menu-suboption code="master.menu.user-account.become-auditor" action="/authenticated/become-auditor/create"
+			<acme:menu-suboption code="master.menu.user-account.auditor-request" action="/authenticated/auditor-request/create"
 				access="!hasRole('Auditor')" />
+			<acme:menu-suboption code="master.menu.user-account.auditor" action="/authenticated/auditor/update"
+				access="hasRole('Auditor')" />
 			<acme:menu-suboption code="master.menu.user-account.become-employer" action="/authenticated/employer/create"
 				access="!hasRole('Employer')" />
 			<acme:menu-suboption code="master.menu.user-account.employer" action="/authenticated/employer/update"

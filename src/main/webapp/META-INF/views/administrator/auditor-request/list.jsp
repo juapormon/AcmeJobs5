@@ -16,6 +16,7 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:list>
-	<acme:list-column code="administrator.become-auditor.list.label.firm" path="firm" width="20%" />
-	<acme:list-column code="administrator.become-auditor.list.label.responsabilityStatement" path="responsabilityStatement" width="50%" />
+	<acme:list-column code="administrator.auditor-request.list.label.username" path="userAccount.username" width="15%" />
+	<acme:list-column code="administrator.auditor-request.list.label.firm" path="firm" width="15%" />
+	<acme:list-column code="administrator.auditor-request.list.label.responsabilityStatement" path="responsabilityStatement" width="70%" />
 </acme:list>

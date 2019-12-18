@@ -1,5 +1,0 @@
-authenticated.become-auditor.form.label.firm = Firma
-authenticated.become-auditor.form.label.responsabilityStatement = Declaración de responsabilidad
-
-authenticated.become-auditor.form.button.create = Registrarse
-authenticated.become-auditor.form.button.return = Volver

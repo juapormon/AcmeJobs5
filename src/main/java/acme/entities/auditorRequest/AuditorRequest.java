@@ -1,5 +1,5 @@
 
-package acme.entities.becomeAuditor;
+package acme.entities.auditorRequest;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -16,23 +16,23 @@ import lombok.Setter;
 @Getter
 @Setter
 
-public class BecomeAuditor extends DomainEntity {
+public class AuditorRequest extends DomainEntity {
 
-	private static final long	serialVersionUID	= 1L;
-
-	@NotBlank
-	private String				firm;
+	private static final long		serialVersionUID	= 1L;
 
 	@NotBlank
-	private String				responsabilityStatement;
+	private String					firm;
+
+	@NotBlank
+	private String					responsabilityStatement;
 
 	@NotNull
-	private BecomeAuditorStatus	status;
+	private AuditorRequestStatus	status;
 
 	// Relationships
 
 	@NotNull
 	@Valid
-	@ManyToOne()
-	private UserAccount			userAccount;
+	@ManyToOne(optional = false)
+	private UserAccount				userAccount;
 }

@@ -1,7 +1,0 @@
-authenticated.become-auditor.form.label.firm = Firm
-authenticated.become-auditor.form.label.responsabilityStatement = Responsability Statement
-
-authenticated.become-auditor.error.noMorePending = You have alredy send a request, please wait for the administrator 
-
-authenticated.become-auditor.form.button.create = Register
-authenticated.become-auditor.form.button.return = Return

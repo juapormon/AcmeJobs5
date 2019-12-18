@@ -1,48 +1,48 @@
 
-package acme.features.administrator.becomeAuditor;
+package acme.features.administrator.auditorRequest;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.becomeAuditor.BecomeAuditor;
+import acme.entities.auditorRequest.AuditorRequest;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Administrator;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AdministratorBecomeAuditorListService implements AbstractListService<Administrator, BecomeAuditor> {
+public class AdministratorAuditorRequestListService implements AbstractListService<Administrator, AuditorRequest> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AdministratorBecomeAuditorRepository repository;
+	private AdministratorAuditorRequestRepository repository;
 
 
 	@Override
-	public boolean authorise(final Request<BecomeAuditor> request) {
+	public boolean authorise(final Request<AuditorRequest> request) {
 		assert request != null;
 
 		return true;
 	}
 
 	@Override
-	public Collection<BecomeAuditor> findMany(final Request<BecomeAuditor> request) {
+	public Collection<AuditorRequest> findMany(final Request<AuditorRequest> request) {
 		assert request != null;
-		Collection<BecomeAuditor> result;
+		Collection<AuditorRequest> result;
 		result = this.repository.findManyAll();
 		return result;
 	}
 
 	@Override
-	public void unbind(final Request<BecomeAuditor> request, final BecomeAuditor entity, final Model model) {
+	public void unbind(final Request<AuditorRequest> request, final AuditorRequest entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "firm", "responsabilityStatement", "status");
+		request.unbind(entity, model, "userAccount.username", "firm", "responsabilityStatement");
 
 	}
 
