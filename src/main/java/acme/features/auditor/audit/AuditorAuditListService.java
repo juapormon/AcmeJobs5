@@ -23,19 +23,15 @@ public class AuditorAuditListService implements AbstractListService<Auditor, Aud
 	@Override
 	public boolean authorise(final Request<Audit> request) {
 		assert request != null;
-		int jobId = request.getModel().getInteger("id");
-		return this.repository.findIsJobPublished(jobId) > 0;
+
+		return true;
 	}
 
 	@Override
 	public Collection<Audit> findMany(final Request<Audit> request) {
 		assert request != null;
 
-		Collection<Audit> result;
-		int idJob = request.getModel().getInteger("id");
-		int idAuditor = request.getPrincipal().getActiveRoleId();
-
-		result = this.repository.findManyAuditByJobId(idJob, idAuditor);
+		Collection<Audit> result = this.repository.findMany(request.getPrincipal().getActiveRoleId());
 
 		return result;
 	}
@@ -46,7 +42,7 @@ public class AuditorAuditListService implements AbstractListService<Auditor, Aud
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "creationMoment", "title", "status", "body", "job", "auditor");
+		request.unbind(entity, model, "job.reference", "creationMoment", "status");
 	}
 
 }

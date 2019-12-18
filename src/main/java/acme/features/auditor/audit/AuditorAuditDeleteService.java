@@ -5,18 +5,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.audit.Audit;
+import acme.entities.audit.AuditStatus;
 import acme.entities.roles.Auditor;
+import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Principal;
-import acme.framework.services.AbstractShowService;
+import acme.framework.services.AbstractDeleteService;
 
 @Service
 
-public class AuditorAuditShowService implements AbstractShowService<Auditor, Audit> {
+public class AuditorAuditDeleteService implements AbstractDeleteService<Auditor, Audit> {
 
 	@Autowired
-	private AuditorAuditRepository repository;
+	AuditorAuditRepository repository;
 
 
 	@Override
@@ -26,9 +28,18 @@ public class AuditorAuditShowService implements AbstractShowService<Auditor, Aud
 		Principal principal = request.getPrincipal();
 		int id = request.getModel().getInteger("id");
 		Audit audit = this.repository.findOneById(id);
-		boolean result = audit.getAuditor().getId() == principal.getActiveRoleId();
+		boolean result = audit.getAuditor().getId() == principal.getActiveRoleId() && audit.getStatus() == AuditStatus.DRAFT;
 
 		return result;
+	}
+
+	@Override
+	public void bind(final Request<Audit> request, final Audit entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+
+		request.bind(entity, errors);
 	}
 
 	@Override
@@ -41,6 +52,14 @@ public class AuditorAuditShowService implements AbstractShowService<Auditor, Aud
 	}
 
 	@Override
+	public void validate(final Request<Audit> request, final Audit entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+
+	}
+
+	@Override
 	public Audit findOne(final Request<Audit> request) {
 		assert request != null;
 
@@ -49,6 +68,14 @@ public class AuditorAuditShowService implements AbstractShowService<Auditor, Aud
 
 		result = this.repository.findOneById(id);
 		return result;
+	}
+
+	@Override
+	public void delete(final Request<Audit> request, final Audit entity) {
+		assert request != null;
+		assert entity != null;
+
+		this.repository.delete(entity);
 	}
 
 }

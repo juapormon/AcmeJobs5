@@ -5,6 +5,8 @@ auditor.job.form.label.salary = Salary
 auditor.job.form.label.moreInfo = More info
 auditor.job.form.label.description = Description
 
+auditor.job.form.button.show-audit = Show my audit
+auditor.job.form.button.create-audit = Create audit
 auditor.job.form.button.list-duties = List duties
 auditor.job.form.button.list-audits = List audits
 auditor.job.form.button.return = Return

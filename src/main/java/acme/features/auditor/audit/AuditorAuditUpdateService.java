@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.audit.Audit;
+import acme.entities.audit.AuditStatus;
 import acme.entities.roles.Auditor;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -26,13 +27,12 @@ public class AuditorAuditUpdateService implements AbstractUpdateService<Auditor,
 	public boolean authorise(final Request<Audit> request) {
 		assert request != null;
 
-		Principal principal;
-		principal = request.getPrincipal();
+		Principal principal = request.getPrincipal();
 		int id = request.getModel().getInteger("id");
-		Audit audit = this.repository.findOneAuditById(id);
-		Auditor auditor = audit.getAuditor();
+		Audit audit = this.repository.findOneById(id);
+		boolean result = audit.getAuditor().getId() == principal.getActiveRoleId() && audit.getStatus() == AuditStatus.DRAFT;
 
-		return principal.getActiveRoleId() == auditor.getId();
+		return result;
 	}
 
 	@Override
@@ -50,7 +50,7 @@ public class AuditorAuditUpdateService implements AbstractUpdateService<Auditor,
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "creationMoment", "title", "status", "body", "job", "auditor");
+		request.unbind(entity, model, "title", "creationMoment", "status", "body", "job.id");
 	}
 
 	@Override
@@ -69,7 +69,7 @@ public class AuditorAuditUpdateService implements AbstractUpdateService<Auditor,
 		int auditId;
 
 		auditId = request.getModel().getInteger("id");
-		audit = this.repository.findOneAuditById(auditId);
+		audit = this.repository.findOneById(auditId);
 
 		return audit;
 	}

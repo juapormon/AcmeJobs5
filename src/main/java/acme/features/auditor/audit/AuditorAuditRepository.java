@@ -15,13 +15,13 @@ import acme.framework.repositories.AbstractRepository;
 public interface AuditorAuditRepository extends AbstractRepository {
 
 	@Query("select a from Audit a where a.id = ?1")
-	Audit findOneAuditById(int id);
+	Audit findOneById(int id);
 
-	@Query("select a from Audit a where (a.job.id=?1 and (a.status=1 or a.auditor.id=?2))")
-	Collection<Audit> findManyAuditByJobId(int idJob, int idAuditor);
+	@Query("select count(a)>0 from Audit a where a.auditor.id = ?1 and a.job.id = ?2")
+	Boolean findExistsAuditByAuditorIdJobId(int auditorId, int jobId);
 
-	@Query("select count(a) from Audit a where a.id=?1 and (a.status=1 or a.auditor.id=?2)")
-	int findPublishedOrOwnAudit(int idAudit, int idAuditor);
+	@Query("select a from Audit a where a.auditor.id = ?1")
+	Collection<Audit> findMany(int auditorId);
 
 	@Query("select j.status from Job j where j.id = ?1")
 	int findIsJobPublished(int jobId);

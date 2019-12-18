@@ -13,7 +13,7 @@ import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 
 @Controller
-@RequestMapping("/auditor/audit-record")
+@RequestMapping("/auditor/audit")
 
 public class AuditorAuditController extends AbstractController<Auditor, Audit> {
 
@@ -29,6 +29,9 @@ public class AuditorAuditController extends AbstractController<Auditor, Audit> {
 	@Autowired
 	AuditorAuditUpdateService	updateService;
 
+	//@Autowired
+	//AuditorAuditUpdateService	deleteService;
+
 
 	@PostConstruct
 	private void initialise() {
@@ -36,6 +39,7 @@ public class AuditorAuditController extends AbstractController<Auditor, Audit> {
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
 		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
+		//super.addBasicCommand(BasicCommand.DELETE, this.deleteService);
 	}
 
 }

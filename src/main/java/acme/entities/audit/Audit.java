@@ -15,7 +15,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
 import acme.entities.jobs.Job;
-import acme.entities.jobs.JobStatus;
 import acme.entities.roles.Auditor;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
@@ -37,7 +36,6 @@ public class Audit extends DomainEntity {
 	@NotNull
 	private AuditStatus			status;
 
-	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
 	private Date				creationMoment;
@@ -55,10 +53,4 @@ public class Audit extends DomainEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	private Auditor				auditor;
-
-
-	public void setStatus(final JobStatus draft) {
-		// TODO Auto-generated method stub
-
-	}
 }
