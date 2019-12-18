@@ -65,7 +65,8 @@ master.menu.anonymous.create-bulletin-4 = Publicar en boletín de Sergio
 master.menu.authenticated = Autenticado
 
 master.menu.authenticated.list-jobs = Listar trabajos
-master.menu.authenticated.list-my-message-threads = Listar mis hilos
+master.menu.authenticated.create-message-thread = Crear un hilo de mensajes
+master.menu.authenticated.list-my-message-threads = Listar mis hilos de mensajes
 
 # master.menu.administrator ###################################################
 
